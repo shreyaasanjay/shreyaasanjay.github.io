@@ -1,0 +1,35 @@
+﻿:root {
+  --page: #d8d2c4;
+  --camera-body: #343434;
+  --camera-edge: #151515;
+  --camera-label: #d7d7d7;
+  --screen: #f5f0e5;
+  --screen-line: #c9c1b1;
+  --ink: #191919;
+  --muted: #6f6b63;
+  --accent: #f2c94c;
+  --accent-dark: #7c6211;
+  --mono: 'Courier New', monospace;
+
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--page);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}

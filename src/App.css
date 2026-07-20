@@ -1,0 +1,165 @@
+﻿.site-shell {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.camera {
+  width: min(100%, 68rem);
+  padding: 1.25rem;
+  border: 2px solid var(--camera-edge);
+  border-radius: 2rem;
+  background: var(--camera-body);
+  box-shadow: 0 2rem 5rem rgb(0 0 0 / 25%);
+}
+
+.camera__top,
+.camera__back,
+.viewfinder__status,
+.camera-controls {
+  display: flex;
+  align-items: center;
+}
+
+.camera__top {
+  justify-content: space-between;
+  padding: 0 1rem 1rem;
+}
+
+.camera__brand {
+  color: var(--camera-label);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.shutter {
+  width: 3.25rem;
+  height: 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: #181818;
+  cursor: pointer;
+}
+
+.shutter span {
+  display: block;
+  width: 1.8rem;
+  height: 0.65rem;
+  margin: auto;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.camera__back {
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.viewfinder {
+  min-height: 32rem;
+  flex: 1;
+  overflow: hidden;
+  border: 0.55rem solid #101010;
+  border-radius: 0.8rem;
+  background: var(--screen);
+  color: var(--ink);
+}
+
+.viewfinder__status {
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--screen-line);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.viewfinder__status span:first-child {
+  color: #d93636;
+}
+
+.viewfinder__content {
+  padding: clamp(2rem, 7vw, 5rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--accent-dark);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 12ch;
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+
+.viewfinder__content > p:not(.eyebrow) {
+  max-width: 42rem;
+  font-size: 1.05rem;
+}
+
+.content-placeholder {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px dashed var(--screen-line);
+  border-radius: 0.75rem;
+  color: var(--muted);
+}
+
+.camera-controls {
+  width: 4.5rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.camera-controls__button {
+  width: 3rem;
+  aspect-ratio: 1;
+  border: 1px solid #090909;
+  border-radius: 50%;
+  background: #252525;
+  color: #efefef;
+  font-family: var(--mono);
+  cursor: pointer;
+}
+
+.camera-controls__button:hover,
+.camera-controls__button:focus-visible,
+.camera-controls__button[data-active='true'] {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .site-shell {
+    padding: 0.75rem;
+  }
+
+  .camera {
+    padding: 0.85rem;
+    border-radius: 1.25rem;
+  }
+
+  .camera__back {
+    flex-direction: column;
+  }
+
+  .viewfinder {
+    min-height: 65svh;
+  }
+
+  .camera-controls {
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
