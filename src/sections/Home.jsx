@@ -8,9 +8,9 @@ function Home ({heading, introduction}) {
 
     )
 }
-        </section>
-    )
-}
+        
+    
+
 
 
 export default Home 
@@ -18,8 +18,8 @@ export default Home
 
 
 
-    )
+    
 
 
 
-}
+
