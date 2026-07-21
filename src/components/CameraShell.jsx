@@ -1,23 +1,53 @@
-﻿import CameraControls from './CameraControls'
+﻿import { useState } from 'react'
+import CameraControls from './CameraControls'
+import CameraImage from '../assets/cameraback.png'
 import Viewfinder from './Viewfinder'
 
 function CameraShell({ sections, currentSection, onSectionChange }) {
-  return (
-    <section className="camera" aria-label="Portfolio camera">
-      <div className="camera__top">
-        <span className="camera__brand">Shreyaa Sanjay</span>
-        <button className="shutter" type="button" aria-label="Featured project">
-          <span />
-        </button>
-      </div>
+  const [isPoweredOn, setIsPoweredOn] = useState(false)
 
-      <div className="camera__back">
-        <Viewfinder section={currentSection} />
-        <CameraControls
-          sections={sections}
-          activeSection={currentSection.id}
-          onSectionChange={onSectionChange}
-        />
+  function handlePowerClick() {
+    const nextPowerState = !isPoweredOn
+
+    setIsPoweredOn(nextPowerState)
+
+    if (nextPowerState) {
+      onSectionChange('home')
+    }
+  }
+
+  return (
+    <section className="camera" aria-label="Shreyaa’s portfolio camera">
+      <img
+        className="camera__image"
+        src={CameraImage}
+        alt=""
+        aria-hidden="true"
+      />
+
+      <button
+        className="camera__power"
+        type="button"
+        onClick={handlePowerClick}
+        aria-label={isPoweredOn ? 'Turn camera off' : 'Turn camera on'}
+        aria-pressed={isPoweredOn}
+      >
+        {isPoweredOn ? 'OFF' : 'ON'}
+      </button>
+
+      <div className="camera__screen">
+        {isPoweredOn ? (
+          <>
+            <Viewfinder section={currentSection} />
+            <CameraControls
+              sections={sections}
+              activeSection={currentSection.id}
+              onSectionChange={onSectionChange}
+            />
+          </>
+        ) : (
+          <div className="camera__off-screen" aria-label="Camera is off" />
+        )}
       </div>
     </section>
   )
