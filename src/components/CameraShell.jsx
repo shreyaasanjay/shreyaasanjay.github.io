@@ -37,18 +37,19 @@ function CameraShell({ sections, currentSection, onSectionChange }) {
 
       <div className="camera__screen">
         {isPoweredOn ? (
-          <>
-            <Viewfinder section={currentSection} />
-            <CameraControls
-              sections={sections}
-              activeSection={currentSection.id}
-              onSectionChange={onSectionChange}
-            />
-          </>
+          <Viewfinder section={currentSection} />
         ) : (
           <div className="camera__off-screen" aria-label="Camera is off" />
         )}
       </div>
+
+      {isPoweredOn && (
+        <CameraControls
+          sections={sections}
+          activeSection={currentSection.id}
+          onSectionChange={onSectionChange}
+        />
+      )}
     </section>
   )
 }
