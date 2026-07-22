@@ -1,22 +1,18 @@
-﻿import Home from '../sections/Home'
-
-function Viewfinder({ section }) {
+﻿function Viewfinder({ section, onExplore }) {
   return (
     <div className="viewfinder" aria-live="polite">
       <div className="viewfinder__status">
         <span>● REC</span>
-        <span>{section.label}</span>
+        <span>Portfolio / {section.label}</span>
       </div>
 
       <div className="viewfinder__content">
-        <p className="eyebrow">Portfolio / {section.label}</p>
-        <h1>{section.heading}</h1>
-        <p>{section.placeholder}</p>
-
-        {/* TODO: Replace this placeholder with a component for each section. */}
-        <div className="content-placeholder">
-          Your {section.label.toLowerCase()} content will go here.
-        </div>
+        <p className="eyebrow">Developing a curious mind</p>
+        <h1>Hi, I’m Shreyaa.</h1>
+        <p>Computer Science + AI at Cornell University</p>
+        <button className="viewfinder__cta" type="button" onClick={onExplore}>
+          Develop portfolio ↓
+        </button>
       </div>
     </div>
   )

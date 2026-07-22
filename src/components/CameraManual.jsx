@@ -1,30 +1,30 @@
 ﻿function CameraManual() {
   return (
     <aside className="camera-manual" aria-labelledby="camera-manual-title">
-      <p className="camera-manual__kicker">Shreyaa's How-To</p>
+      <p className="camera-manual__kicker">Shreyaa’s How-To</p>
       <h2 id="camera-manual-title">Camera Manual</h2>
 
       <ol className="camera-manual__steps">
         <li>
           <span>01</span>
-          Press <strong>ON</strong> to wake the LCD.
+          Press <strong>ON</strong> to develop the portfolio.
         </li>
         <li>
           <span>02</span>
-          Choose <strong>HM, EX, PR, SK,</strong> or <strong>CT</strong>.
+          Use <strong>HM, EX, PR, SK,</strong> or <strong>CT</strong> to jump around.
         </li>
         <li>
           <span>03</span>
-          Read or scroll through the selected section.
+          Scroll through the scrapbook below.
         </li>
         <li>
           <span>04</span>
-          Press <strong>OFF</strong> when you are finished exploring.
+          Select a project photo to open its case study.
         </li>
       </ol>
 
       <p className="camera-manual__note">
-        Tip: the camera buttons are keyboard accessible too.
+        Tip: every camera control is keyboard accessible.
       </p>
     </aside>
   )

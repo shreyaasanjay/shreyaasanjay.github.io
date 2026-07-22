@@ -1,0 +1,91 @@
+﻿function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
+  return (
+    <article className="scrapbook" aria-label="Shreyaa’s portfolio scrapbook">
+      <section className="scrapbook-intro" id="home">
+        <p className="scrapbook-kicker">Page 01 · My story</p>
+        <h2>Rooted in curiosity,<br />driven by impact.</h2>
+        <p>
+          I’m Shreyaa Sanjay, a Cornell University student studying Computer
+          Science and AI. This scrapbook is a growing collection of the work,
+          questions, and ideas shaping my journey.
+        </p>
+      </section>
+
+      <div className="scrapbook-spread">
+        <section className="scrapbook-page experience-page" id="experience">
+          <header className="section-heading">
+            <span>Chapter 02</span>
+            <h2>Experience</h2>
+          </header>
+
+          <div className="experience-timeline">
+            {experiences.map((experience, index) => (
+              <article className="experience-note" key={experience.company}>
+                <span className="experience-note__number">0{index + 1}</span>
+                <p className="experience-note__date">{experience.date}</p>
+                <h3>{experience.company}</h3>
+                <p className="experience-note__role">{experience.role}</p>
+                <p>{experience.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="scrapbook-page projects-page" id="projects">
+          <header className="section-heading">
+            <span>Chapter 03</span>
+            <h2>Selected Projects</h2>
+          </header>
+
+          <div className="project-grid">
+            {projects.map((project, index) => (
+              <button
+                className={`project-polaroid project-polaroid--${project.accent}`}
+                key={project.id}
+                type="button"
+                onClick={() => onProjectOpen(project)}
+              >
+                <span className="project-polaroid__image" aria-hidden="true">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                </span>
+                <span className="project-polaroid__category">{project.category}</span>
+                <strong>{project.title}</strong>
+                <span>{project.description}</span>
+                <em>Open case study →</em>
+              </button>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <section className="skills-strip" id="skills">
+        <header className="section-heading">
+          <span>Chapter 04</span>
+          <h2>Skills</h2>
+        </header>
+        <div className="skill-stamps">
+          {skillGroups.map((group) => (
+            <article className="skill-stamp" key={group.label}>
+              <span aria-hidden="true">✦</span>
+              <div>
+                <h3>{group.label}</h3>
+                <p>{group.items.join(' · ')}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="contact-postcard" id="contact">
+        <div>
+          <p className="scrapbook-kicker">The next chapter</p>
+          <h2>Let’s make something meaningful.</h2>
+          <p>I’m always happy to talk about projects, research, and new ideas.</p>
+        </div>
+        <a href="mailto:ss4457@cornell.edu">ss4457@cornell.edu →</a>
+      </section>
+    </article>
+  )
+}
+
+export default Scrapbook

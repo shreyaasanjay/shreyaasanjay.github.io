@@ -1,19 +1,17 @@
-﻿import { useState } from 'react'
-import CameraControls from './CameraControls'
+﻿import CameraControls from './CameraControls'
 import CameraImage from '../assets/cameraback.png'
 import Viewfinder from './Viewfinder'
 
-function CameraShell({ sections, currentSection, onSectionChange }) {
-  const [isPoweredOn, setIsPoweredOn] = useState(false)
-
+function CameraShell({
+  sections,
+  currentSection,
+  isPoweredOn,
+  onPowerChange,
+  onSectionChange,
+  onExplore,
+}) {
   function handlePowerClick() {
-    const nextPowerState = !isPoweredOn
-
-    setIsPoweredOn(nextPowerState)
-
-    if (nextPowerState) {
-      onSectionChange('home')
-    }
+    onPowerChange(!isPoweredOn)
   }
 
   return (
@@ -37,9 +35,11 @@ function CameraShell({ sections, currentSection, onSectionChange }) {
 
       <div className="camera__screen">
         {isPoweredOn ? (
-          <Viewfinder section={currentSection} />
+          <Viewfinder section={currentSection} onExplore={onExplore} />
         ) : (
-          <div className="camera__off-screen" aria-label="Camera is off" />
+          <div className="camera__off-screen" aria-label="Camera is off">
+            <span>Press ON to begin</span>
+          </div>
         )}
 
         {isPoweredOn && (
