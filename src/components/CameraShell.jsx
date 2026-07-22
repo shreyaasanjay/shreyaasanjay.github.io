@@ -41,6 +41,12 @@ function CameraShell({ sections, currentSection, onSectionChange }) {
         ) : (
           <div className="camera__off-screen" aria-label="Camera is off" />
         )}
+
+        {isPoweredOn && (
+          <div className="camera__shutter" aria-hidden="true">
+            <span />
+          </div>
+        )}
       </div>
 
       {isPoweredOn && (

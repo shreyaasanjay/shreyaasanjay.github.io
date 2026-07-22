@@ -1,5 +1,5 @@
 ﻿:root {
-  --page: #d8d2c4;
+  --page: #efd3ad;
   --camera-body: #343434;
   --camera-edge: #151515;
   --camera-label: #d7d7d7;
@@ -26,6 +26,13 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background: radial-gradient(
+    ellipse at 50% 28%,
+    #fff8ed 0%,
+    #f7e3c9 48%,
+    #e8c59b 100%
+  );
+  background-attachment: fixed;
 }
 
 button,
@@ -33,3 +40,5 @@ input,
 textarea {
   font: inherit;
 }
+
+

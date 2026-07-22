@@ -8,12 +8,14 @@
           type="button"
           onClick={() => onSectionChange(section.id)}
           aria-label = {`Open ${section.label}`}
+          data-active={activeSection === section.id}
         >
           {section.shortLabel}
         </button>
       ))}
     </nav>
   )
+  
 }
 
 export default CameraControls
