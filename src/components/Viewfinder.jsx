@@ -1,4 +1,4 @@
-﻿function Viewfinder({ section, hasTakenPhoto }) {
+﻿function Viewfinder({ section }) {
   return (
     <div className="viewfinder" aria-live="polite">
       <div className="viewfinder__status">
@@ -19,3 +19,4 @@
 }
 
 export default Viewfinder
+

@@ -1863,3 +1863,97 @@ a {
     width: 195px;
   }
 }
+
+/* Elegant shutter instruction */
+.camera__capture-guide {
+  top: 18%;
+  left: 8.5%;
+  width: clamp(7.8rem, 18%, 11rem);
+  display: grid;
+  gap: 0.18rem;
+  justify-items: center;
+  padding: clamp(0.55rem, 1vw, 0.85rem) clamp(0.6rem, 1.2vw, 1rem);
+  overflow: visible;
+  border: 1px solid rgb(104 72 43 / 18%);
+  border-radius: 0.15rem;
+  background: rgb(255 249 237 / 88%);
+  box-shadow: 0 0.7rem 1.2rem rgb(92 57 27 / 10%);
+  color: #4c3828;
+  text-align: center;
+  mix-blend-mode: normal;
+  filter: none;
+  transform: rotate(-1.5deg);
+}
+
+.camera__capture-guide::before {
+  content: '';
+  position: absolute;
+  top: -0.38rem;
+  left: 50%;
+  width: 2.8rem;
+  height: 0.72rem;
+  background: rgb(203 177 137 / 62%);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.camera__capture-guide-kicker {
+  color: #9f3d2e;
+  font-family: var(--mono);
+  font-size: clamp(0.32rem, 0.48vw, 0.46rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.camera__capture-guide strong {
+  font-family: Baskerville, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  font-size: clamp(0.66rem, 1.15vw, 1rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.camera__capture-guide-arrow {
+  position: absolute;
+  right: 24%;
+  bottom: -2.5rem;
+  color: rgb(159 61 46 / 78%);
+  font-family: Baskerville, Georgia, serif;
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  line-height: 1;
+  transform: rotate(-8deg);
+}
+
+@media (max-width: 640px) {
+  .camera__capture-guide {
+    top: 2%;
+    left: 5%;
+    width: 7.2rem;
+    padding: 0.45rem 0.5rem;
+  }
+
+  .camera__capture-guide strong {
+    font-size: 0.62rem;
+  }
+
+  .camera__capture-guide-arrow {
+    bottom: -1.45rem;
+    font-size: 1.2rem;
+  }
+}
+
+.camera__capture-guide-arrow {
+  font-size: clamp(1.55rem, 2.65vw, 2.35rem);
+  font-weight: 900;
+  -webkit-text-stroke: 0.45px currentColor;
+  text-shadow:
+    0.035em 0 currentColor,
+    -0.035em 0 currentColor;
+  transform: rotate(-8deg) scaleX(1.12);
+}
+
+@media (max-width: 640px) {
+  .camera__capture-guide-arrow {
+    font-size: 1.45rem;
+  }
+}

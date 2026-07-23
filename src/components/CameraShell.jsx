@@ -1,6 +1,5 @@
-﻿import CameraControls from './CameraControls'
+import CameraControls from './CameraControls'
 import CameraImage from '../assets/camera-illustrated.png'
-import CaptureGuide from '../assets/capture-guide-transparent.png'
 import Viewfinder from './Viewfinder'
 import { useEffect, useState } from 'react'
 
@@ -43,11 +42,11 @@ function CameraShell({
       />
 
       {isPoweredOn && !hasTakenPhoto && (
-        <img
-          className="camera__capture-guide"
-          src={CaptureGuide}
-          alt="Press the down-arrow button to take a picture"
-        />
+        <div className="camera__capture-guide" aria-hidden="true">
+          <span className="camera__capture-guide-kicker"></span>
+          <strong>Press to take a picture</strong>
+          <span className="camera__capture-guide-arrow">↓</span>
+        </div>
       )}
 
       <button
@@ -74,7 +73,7 @@ function CameraShell({
 
       <div className="camera__screen">
         {isPoweredOn ? (
-          <Viewfinder section={currentSection} hasTakenPhoto={hasTakenPhoto} />
+          <Viewfinder section={currentSection} />
         ) : (
           <div className="camera__off-screen" aria-label="Camera is off">
             <span>Press ON to begin</span>
@@ -100,3 +99,5 @@ function CameraShell({
 }
 
 export default CameraShell
+
+
