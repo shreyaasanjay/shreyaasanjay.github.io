@@ -7,12 +7,12 @@
       </div>
 
       <div className="viewfinder__content">
-        <p className="eyebrow">Developing a curious mind</p>
-        <h1>Hi, I’m Shreyaa.</h1>
-        <p>Computer Science + AI at Cornell University</p>
-        <p className="viewfinder__cta viewfinder__cta--instruction">
+        <p className="eyebrow"></p>
+        <h1>Hi, I’m Shreyaa!</h1>
+        <p>Computer Science + ECE at Cornell University</p>
+        {/* <p className="viewfinder__cta viewfinder__cta--instruction">
           {hasTakenPhoto ? 'Picture captured ✓' : 'Press ↓ to take picture'}
-        </p>
+        </p> */}
       </div>
     </div>
   )
