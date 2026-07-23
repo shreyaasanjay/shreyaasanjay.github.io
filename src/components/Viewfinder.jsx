@@ -1,4 +1,4 @@
-﻿function Viewfinder({ section, onExplore }) {
+﻿function Viewfinder({ section, hasTakenPhoto }) {
   return (
     <div className="viewfinder" aria-live="polite">
       <div className="viewfinder__status">
@@ -10,9 +10,9 @@
         <p className="eyebrow">Developing a curious mind</p>
         <h1>Hi, I’m Shreyaa.</h1>
         <p>Computer Science + AI at Cornell University</p>
-        <button className="viewfinder__cta" type="button" onClick={onExplore}>
-          Develop portfolio ↓
-        </button>
+        <p className="viewfinder__cta viewfinder__cta--instruction">
+          {hasTakenPhoto ? 'Picture captured ✓' : 'Press ↓ to take picture'}
+        </p>
       </div>
     </div>
   )

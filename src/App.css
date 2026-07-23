@@ -97,6 +97,7 @@ a {
   isolation: isolate;
   width: 100%;
   max-width: 1000px;
+  margin-inline: auto;
 }
 
 .camera__image {
@@ -118,10 +119,10 @@ a {
   content: '';
   position: absolute;
   z-index: -1;
-  right: 8%;
-  bottom: -1.2%;
-  left: 8%;
-  height: 5.5%;
+  right: 14%;
+  bottom: 18.5%;
+  left: 14%;
+  height: 4%;
   border-radius: 50%;
   background: rgb(88 53 25 / 30%);
   filter: blur(18px);
@@ -131,10 +132,10 @@ a {
 .camera__screen {
   position: absolute;
   z-index: 2;
-  top: 41%;
-  left: 10%;
-  width: 52%;
-  height: 53%;
+  top: 46%;
+  left: 21%;
+  width: 35.2%;
+  height: 26.2%;
   display: flex;
   overflow: hidden;
   border-radius: clamp(4px, 1vw, 10px);
@@ -161,11 +162,13 @@ a {
 .camera__power {
   position: absolute;
   z-index: 5;
-  top: 29.7%;
-  right: 34.2%;
-  min-width: 3.1rem;
-  padding: clamp(0.45rem, 1vw, 0.85rem) 0.65rem;
-  border: clamp(2px, 0.45vw, 6px) solid #111;
+  top: 38%;
+  right: 36.9%;
+  width: 4.2%;
+  min-width: 28px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: clamp(1px, 0.25vw, 3px) solid #111;
   border-radius: 999px;
   background: #090706;
   color: #f5eded;
@@ -258,6 +261,61 @@ a {
   cursor: pointer;
 }
 
+.viewfinder__cta--instruction {
+  display: inline-block;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.camera__capture-guide {
+  position: absolute;
+  z-index: 6;
+  top: 2%;
+  left: 9%;
+  width: min(19%, 190px);
+  height: auto;
+  border-radius: 0.5rem;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 0.55rem 0.7rem rgb(92 57 27 / 12%));
+  pointer-events: none;
+  transform: rotate(-2deg);
+}
+.camera__capture {
+  position: absolute;
+  z-index: 7;
+  top: 30.1%;
+  left: 19.8%;
+  width: 5.25%;
+  min-width: 18px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #090909;
+  border-radius: 50%;
+  background: #110d0a;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: clamp(0.65rem, 1.25vw, 1rem);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgb(202 143 32 / 28%);
+  animation: capture-hint 1.4s ease-in-out infinite;
+}
+
+.camera__capture:hover,
+.camera__capture:focus-visible {
+  color: #fff6d9;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.camera__capture:disabled {
+  color: #7e7669;
+  cursor: default;
+  box-shadow: none;
+  animation: none;
+}
 .camera-controls {
   position: absolute;
   z-index: 6;
@@ -267,8 +325,8 @@ a {
 
 .camera-controls__button {
   position: absolute;
-  width: 5%;
-  min-width: 20px;
+  width: 4.25%;
+  min-width: 18px;
   aspect-ratio: 1;
   padding: 0;
   border: 1px solid #090909;
@@ -290,28 +348,28 @@ a {
 }
 
 .camera-controls__button--home {
-  top: 31%;
-  left: 9.6%;
+  top: 36.2%;
+  left: 17.8%;
 }
 
 .camera-controls__button--experience {
-  top: 31%;
-  left: 16%;
+  top: 36.1%;
+  left: 23.7%;
 }
 
 .camera-controls__button--projects {
-  top: 29%;
-  right: 25.5%;
+  top: 34.9%;
+  right: 26.3%;
 }
 
 .camera-controls__button--skills {
-  top: 30%;
-  right: 12.6%;
+  top: 35.9%;
+  right: 20.8%;
 }
 
 .camera-controls__button--contact {
-  top: 30%;
-  right: 7%;
+  top: 36.5%;
+  right: 15.7%;
 }
 
 .camera__shutter {
@@ -352,13 +410,15 @@ a {
 }
 
 .developing-photo {
-  position: relative;
-  z-index: 1;
-  width: min(38%, 300px);
+  position: absolute;
+  z-index: 4;
+  top: 75%;
+  left: 50%;
+  width: min(40%, 360px);
   max-height: 0;
   display: grid;
   gap: 0.45rem;
-  margin: -3.5rem auto 0;
+  margin: 0;
   padding: 0.75rem 0.75rem 1rem;
   overflow: hidden;
   border: 1px solid rgb(101 69 40 / 18%);
@@ -367,8 +427,10 @@ a {
   color: #5f3026;
   text-align: center;
   text-decoration: none;
+  font: inherit;
+  cursor: pointer;
   opacity: 0;
-  transform: translateY(-70%) rotate(-1.5deg);
+  transform: translate(-50%, -55%) rotate(-1.5deg);
   transition:
     max-height 700ms ease,
     opacity 450ms ease,
@@ -378,11 +440,26 @@ a {
 .developing-photo--visible {
   max-height: 25rem;
   opacity: 1;
-  transform: translateY(20%) rotate(-1.5deg);
+  transform: translate(-50%, 12%) rotate(-1.5deg);
+}
+
+.developing-photo--visible:not(:disabled):hover,
+.developing-photo--visible:not(:disabled):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow: 0 1.5rem 2.4rem rgb(84 50 25 / 28%);
+}
+
+.developing-photo:disabled {
+  cursor: default;
+}
+
+.developing-photo:not(.developing-photo--visible) {
+  pointer-events: none;
 }
 
 .developing-photo__image {
-  height: clamp(5rem, 11vw, 8rem);
+  height: clamp(15rem, 15vw, 11rem);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -958,6 +1035,18 @@ a {
   font-size: 0.8rem;
 }
 
+@keyframes capture-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 3px rgb(202 143 32 / 20%);
+  }
+
+  50% {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 6px rgb(202 143 32 / 8%);
+  }
+}
 @keyframes shutter-open-top {
   0%,
   22% {
@@ -1077,11 +1166,11 @@ a {
   }
 
   .camera__power {
-    min-width: 1.7rem;
-    padding: 0.32rem 0.25rem;
+    min-width: 23px;
   }
 
-  .camera-controls__button {
+  .camera-controls__button,
+  .camera__capture {
     min-width: 17px;
   }
 
@@ -1090,12 +1179,11 @@ a {
   }
 
   .developing-photo {
-    width: 48%;
-    margin-top: -1.8rem;
+    width: 58%;
   }
 
   .developing-photo--visible {
-    transform: translateY(12%) rotate(-1.5deg);
+    transform: translate(-50%, 12%) rotate(-1.5deg);
   }
 
   .camera-manual {
@@ -1155,6 +1243,10 @@ a {
 
   .camera__shutter {
     display: none;
+  }
+
+  .camera__capture {
+    animation: none;
   }
 
   .developing-photo,
@@ -1341,9 +1433,9 @@ a {
   width: clamp(8.5rem, 13vw, 12rem);
   padding: 2rem 1rem 1.4rem;
   border: 1px solid rgb(112 80 50 / 12%);
-  background: rgb(255 249 237 / 72%);
-  box-shadow: 0 0.8rem 1.5rem rgb(92 57 27 / 8%);
-  color: rgb(84 67 50 / 72%);
+  background: rgb(255 249 237 / 84%);
+  box-shadow: 0 0.8rem 1.5rem rgb(92 57 27 / 12%);
+  color: rgb(84 67 50 / 84%);
   font-family: 'Segoe Print', 'Bradley Hand', cursive;
   font-size: clamp(0.72rem, 1.15vw, 1rem);
   line-height: 1.65;
@@ -1375,9 +1467,9 @@ a {
   aspect-ratio: 1;
   display: grid;
   place-content: center;
-  border: 2px double rgb(159 61 46 / 52%);
+  border: 2px double rgb(159 61 46 / 68%);
   border-radius: 50%;
-  color: rgb(159 61 46 / 58%);
+  color: rgb(159 61 46 / 72%);
   font-family: var(--mono);
   text-align: center;
   text-transform: uppercase;
@@ -1420,9 +1512,9 @@ a {
   aspect-ratio: 1;
   display: grid;
   place-content: center;
-  border: 2px double rgb(103 120 73 / 48%);
+  border: 2px double rgb(103 120 73 / 64%);
   border-radius: 50%;
-  color: rgb(103 120 73 / 60%);
+  color: rgb(103 120 73 / 74%);
   font-family: var(--mono);
   font-size: clamp(0.4rem, 0.62vw, 0.55rem);
   letter-spacing: 0.05em;
@@ -1452,7 +1544,7 @@ a {
 .hero-decal--sparkle-one {
   top: 17%;
   right: 19%;
-  color: rgb(181 132 58 / 55%);
+  color: rgb(181 132 58 / 70%);
   font-size: 1.2rem;
   transform: rotate(14deg);
 }
@@ -1460,21 +1552,21 @@ a {
 .hero-decal--sparkle-two {
   top: 48%;
   right: 2.5%;
-  color: rgb(159 61 46 / 46%);
+  color: rgb(159 61 46 / 62%);
   font-size: 1.6rem;
 }
 
 .hero-decal--sparkle-three {
   bottom: 17%;
   left: 20%;
-  color: rgb(103 120 73 / 48%);
+  color: rgb(103 120 73 / 64%);
   font-size: 1rem;
 }
 
 .hero-decal--dashes {
   right: 8%;
   bottom: 32%;
-  color: rgb(159 61 46 / 38%);
+  color: rgb(159 61 46 / 55%);
   font-family: var(--mono);
   font-size: 1rem;
   letter-spacing: 0.3em;
@@ -1483,12 +1575,12 @@ a {
 
 @media (max-width: 1120px) {
   .hero-decal--note {
-    opacity: 0.52;
+    opacity: 0.68;
   }
 
   .hero-decal--cornell {
     left: 1rem;
-    opacity: 0.58;
+    opacity: 0.72;
   }
 }
 
@@ -1496,19 +1588,19 @@ a {
   .hero-decal--note {
     top: 47%;
     left: -2rem;
-    opacity: 0.28;
+    opacity: 0.58;
   }
 
   .hero-decal--cornell {
     top: 8%;
     width: 4.5rem;
-    opacity: 0.42;
+    opacity: 0.58;
   }
 
   .hero-decal--motto {
     right: -0.8rem;
     bottom: 29%;
-    opacity: 0.42;
+    opacity: 0.58;
   }
 }
 
@@ -1521,7 +1613,7 @@ a {
     top: 4.5%;
     left: -0.9rem;
     width: 3.8rem;
-    opacity: 0.28;
+    opacity: 0.58;
   }
 
   .hero-decal--cornell::after {
@@ -1532,7 +1624,7 @@ a {
     right: -1.2rem;
     bottom: 30%;
     width: 4.5rem;
-    opacity: 0.3;
+    opacity: 0.44;
   }
 
   .hero-decal--sparkle-two,
@@ -1547,4 +1639,226 @@ a {
   object-fit: cover;
   opacity: 1;
   mix-blend-mode: normal;
+}
+
+/* Reference-inspired centered hero composition */
+.portfolio-stage {
+  position: relative;
+  width: min(98vw, 1420px);
+  display: block;
+}
+
+.camera-column {
+  width: min(80vw, 1000px);
+  margin-inline: auto;
+
+}
+
+.portfolio-stage > .camera-manual {
+  position: absolute;
+  z-index: 8;
+  right: 0;
+  bottom: 2%;
+  width: min(19vw, 260px);
+  min-width: 225px;
+  transform: rotate(1.5deg);
+}
+
+.developing-photo::after {
+  content: '';
+  position: absolute;
+  right: -0.7rem;
+  bottom: 0.55rem;
+  width: 3.8rem;
+  height: 1.05rem;
+  background: rgb(210 180 137 / 72%);
+  transform: rotate(-35deg);
+}
+
+.hero-decal--pressed-flower-left,
+.hero-decal--pressed-flower-right {
+  max-width: none;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  opacity: 0.32;
+}
+
+.hero-decal--pressed-flower-left {
+  bottom: -7%;
+  left: -5%;
+  width: min(34vw, 480px);
+  transform: rotate(-13deg);
+  transform-origin: bottom left;
+}
+
+.hero-decal--pressed-flower-right {
+  top: 3%;
+  right: -5%;
+  width: min(27vw, 390px);
+  opacity: 0.24;
+  transform: rotate(155deg);
+  transform-origin: center;
+}
+
+.hero-decal--tape-left,
+.hero-decal--tape-right {
+  width: 5.2rem;
+  height: 1.25rem;
+  background: rgb(203 177 137 / 58%);
+  box-shadow: inset 0 0 0.15rem rgb(255 255 255 / 30%);
+}
+
+.hero-decal--tape-left {
+  bottom: 19%;
+  left: 9%;
+  transform: rotate(17deg);
+}
+
+.hero-decal--tape-right {
+  top: 20%;
+  right: 8%;
+  background: rgb(178 189 143 / 50%);
+  transform: rotate(-12deg);
+}
+
+@media (max-width: 1180px) {
+  .camera-column {
+    width: min(80vw, 940px);
+    margin-left: 4vw;
+  }
+
+  .portfolio-stage > .camera-manual {
+    right: 1vw;
+    width: 235px;
+    min-width: 0;
+  }
+
+  .hero-decal--pressed-flower-right {
+    opacity: 0.17;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-stage {
+    width: min(96vw, 760px);
+  }
+
+  .camera-column {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .portfolio-stage > .camera-manual {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(100%, 30rem);
+    margin: 4.5rem auto 0;
+    transform: none;
+  }
+
+  .hero-decal--pressed-flower-left {
+    bottom: 34%;
+    left: -25%;
+    width: 80vw;
+    opacity: 0.2;
+  }
+
+  .hero-decal--pressed-flower-right {
+    top: 1%;
+    right: -28%;
+    width: 68vw;
+    opacity: 0.14;
+  }
+
+  .hero-decal--tape-left {
+    bottom: 34%;
+    left: 4%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-decal--pressed-flower-left {
+    bottom: 17%;
+    opacity: 0.15;
+  }
+
+  .hero-decal--tape-left,
+  .hero-decal--tape-right {
+    width: 3.6rem;
+    height: 0.9rem;
+    opacity: 0.55;
+  }
+
+  .hero-decal--tape-right {
+    top: 14%;
+    right: 1%;
+  }
+}
+
+/* Camera and manual scale adjustment */
+@media (min-width: 901px) {
+  .camera-column {
+    width: min(75vw, 950px);
+    margin-inline: auto;
+    transform: translateY(-7vh);
+  }
+
+  .portfolio-stage > .camera-manual {
+    right: clamp(1rem, 3vw, 3rem);
+    bottom: 34%;
+    width: min(15.5vw, 215px);
+    min-width: 190px;
+    padding: 1.2rem 1rem 1rem;
+  }
+
+  .camera-manual h2 {
+    font-size: 1.35rem;
+  }
+
+  .camera-manual__intro {
+    font-size: 0.68rem;
+  }
+
+  .camera-manual__steps li {
+    grid-template-columns: 1.65rem 1fr;
+    gap: 0.5rem;
+    padding: 0.52rem 0;
+  }
+
+  .camera-manual__steps .camera-manual__icon {
+    width: 1.55rem;
+    font-size: 0.62rem;
+  }
+
+  .camera-manual__steps strong {
+    font-size: 0.59rem;
+  }
+
+  .camera-manual__steps p {
+    font-size: 0.63rem;
+  }
+
+  .camera-manual__legend {
+    gap: 0.3rem;
+    padding: 0.5rem;
+  }
+
+  .camera-manual__legend span,
+  .camera-manual__note,
+  .camera-manual__kicker {
+    font-size: 0.53rem;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .camera-column {
+    width: min(86vw, 1020px);
+    margin-inline: auto;
+  }
+
+  .portfolio-stage > .camera-manual {
+    right: 0;
+    width: 195px;
+  }
 }

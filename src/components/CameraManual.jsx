@@ -29,22 +29,22 @@ function CameraManual() {
         <li>
           <span className="camera-manual__icon" aria-hidden="true">◎</span>
           <div>
-            <strong>Develop</strong>
-            <p>Select “Develop portfolio” to reveal the scrapbook.</p>
+            <strong>Take a picture</strong>
+            <p>Press the ↓ shutter button to print your portfolio photo.</p>
           </div>
         </li>
         <li>
           <span className="camera-manual__icon" aria-hidden="true">⌁</span>
           <div>
-            <strong>Explore</strong>
-            <p>Use the camera controls or scroll through each chapter.</p>
+            <strong>Develop</strong>
+            <p>Select the polaroid to reveal the scrapbook.</p>
           </div>
         </li>
         <li>
           <span className="camera-manual__icon" aria-hidden="true">✦</span>
           <div>
-            <strong>Open a story</strong>
-            <p>Select a project photo to view its case study.</p>
+            <strong>Explore</strong>
+            <p>Use the camera controls or scroll through each chapter.</p>
           </div>
         </li>
       </ol>
@@ -64,4 +64,3 @@ function CameraManual() {
 }
 
 export default CameraManual
-

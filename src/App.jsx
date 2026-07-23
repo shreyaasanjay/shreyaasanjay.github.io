@@ -13,6 +13,7 @@ import './App.css'
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isPoweredOn, setIsPoweredOn] = useState(false)
+  const [hasTakenPhoto, setHasTakenPhoto] = useState(false)
   const [isDeveloped, setIsDeveloped] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
 
@@ -33,12 +34,19 @@ function App() {
     setActiveSection('home')
 
     if (!nextPowerState) {
+      setHasTakenPhoto(false)
       setIsDeveloped(false)
       setSelectedProject(null)
     }
   }
 
+  function handleTakePhoto() {
+    setHasTakenPhoto(true)
+  }
+
   function handleDevelop() {
+    if (!hasTakenPhoto) return
+
     setActiveSection('home')
     setIsDeveloped(true)
   }
@@ -102,6 +110,18 @@ function App() {
             Rooted in curiosity,<br />driven by impact.
             <span className="hero-decal__heart">♡</span>
           </div>
+          <img
+            className="hero-decal hero-decal--pressed-flower-left"
+            src={BotanicalFlower}
+            alt=""
+          />
+          <img
+            className="hero-decal hero-decal--pressed-flower-right"
+            src={BotanicalFlower}
+            alt=""
+          />
+          <span className="hero-decal hero-decal--tape-left" />
+          <span className="hero-decal hero-decal--tape-right" />
           <div className="hero-decal hero-decal--cornell">
             <span>Cornell</span>
             <b>C</b>
@@ -124,21 +144,26 @@ function App() {
               sections={navigationSections}
               currentSection={currentSection}
               isPoweredOn={isPoweredOn}
+              hasTakenPhoto={hasTakenPhoto}
               onPowerChange={handlePowerChange}
               onSectionChange={scrollToSection}
-              onExplore={handleDevelop}
+              onTakePhoto={handleTakePhoto}
             />
 
-            <a
-              className={`developing-photo${isDeveloped ? ' developing-photo--visible' : ''}`}
-              href="#home"
+            <button
+              className={`developing-photo${hasTakenPhoto ? ' developing-photo--visible' : ''}`}
+              type="button"
+              onClick={handleDevelop}
+              disabled={!hasTakenPhoto || isDeveloped}
+              aria-label="Develop and open portfolio"
+              aria-hidden={!hasTakenPhoto}
             >
               <span className="developing-photo__image">
                 <img src={CornellCampusPhoto} alt="Cornell campus in autumn with McGraw Tower" />
               </span>
-              <strong>CS + AI at Cornell</strong>
-              <span>Scroll to develop ↓</span>
-            </a>
+              <strong>Portfolio captured</strong>
+              <span>{isDeveloped ? 'Developed ✓' : 'Click to develop ↓'}</span>
+            </button>
           </div>
 
           <CameraManual />
@@ -165,9 +190,3 @@ function App() {
 }
 
 export default App
-
-
-
-
-
-
