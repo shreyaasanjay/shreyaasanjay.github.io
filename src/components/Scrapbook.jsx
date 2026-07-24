@@ -35,7 +35,7 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
                 <span className="experience-note__number">0{index + 1}</span>
                 <p className="experience-note__date">{experience.date}</p>
                 <h3>{experience.company}</h3>
-                <p className="experience-note__role">{experience.role}</p>
+                <p className="experience-note__role whitespace-pre-line">{experience.role}</p>
                 <p>{experience.description}</p>
               </article>
             ))}
@@ -62,7 +62,7 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
                 <span className="project-polaroid__category">{project.category}</span>
                 <strong>{project.title}</strong>
                 <span>{project.description}</span>
-                <em>Open case study →</em>
+                <em> Click for more information →</em>
               </button>
             ))}
           </div>

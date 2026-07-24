@@ -785,6 +785,7 @@ a {
   color: #625548;
   font-size: 0.88rem;
   line-height: 1.55;
+  white-space: pre-line;
 }
 
 .project-grid {
@@ -2623,3 +2624,5 @@ html {
 .camera-flower-decal img {
   transform: rotate(-8deg);
 }
+
+
