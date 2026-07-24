@@ -1,14 +1,25 @@
-﻿function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
+﻿import IntroPortrait from '../assets/intro-portrait.jpg'
+
+function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
   return (
     <article className="scrapbook" aria-label="Shreyaa’s portfolio scrapbook">
       <section className="scrapbook-intro" id="home">
-        <p className="scrapbook-kicker">Page 01 · My story</p>
-        <h2>Rooted in curiosity,<br />driven by impact.</h2>
-        <p>
-          I’m Shreyaa Sanjay, a Cornell University student studying Computer
-          Science and AI. This scrapbook is a growing collection of the work,
-          questions, and ideas shaping my journey.
-        </p>
+        <div className="scrapbook-intro__copy">
+          <p className="scrapbook-kicker">About Me</p>
+          <h2>About Me</h2>
+          <p>
+            Hey! I’m Shreyaa Sanjay, a Cornell University student studying Computer
+            Science and ECE. I love learning about how physical systems connect to
+            software and love building tools for social impact. I also enjoy watching
+            bollywood movies, thrifting and sewing clothes, and photography!
+          </p>
+        </div>
+
+        <figure className="scrapbook-intro__photo">
+          <span aria-hidden="true" />
+          <img src={IntroPortrait} alt="Shreyaa at Cornell" />
+          <figcaption>New Jersey, USA</figcaption>
+        </figure>
       </section>
 
       <div className="scrapbook-spread">
@@ -89,3 +100,4 @@
 }
 
 export default Scrapbook
+
