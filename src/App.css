@@ -107,11 +107,12 @@ a {
   opacity: 0.97;
   mix-blend-mode: multiply;
   filter:
-    grayscale(0.2)
-    sepia(0.12)
-    saturate(0.65)
-    contrast(1.1)
-    brightness(1.04)
+    grayscale(0.05)
+    sepia(0.85)
+    saturate(1.5)
+    hue-rotate(-12deg)
+    contrast(1.08)
+    brightness(0.88)
     drop-shadow(0 1.4rem 1.1rem rgb(92 57 27 / 24%));
 }
 
@@ -154,7 +155,7 @@ a {
   background: #020202;
   color: #857f73;
   font-family: var(--mono);
-  font-size: clamp(0.45rem, 1vw, 0.72rem);
+  font-size: clamp(0.78rem, 1.4vw, 1rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -174,12 +175,16 @@ a {
   color: #f5eded;
   font-size: clamp(0.42rem, 0.9vw, 0.75rem);
   cursor: pointer;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0.7rem rgb(202 143 32 / 28%);
 }
 
 .camera__power:hover,
 .camera__power:focus-visible {
   color: var(--accent);
   outline: 2px solid var(--accent);
+  box-shadow: 0 0 1rem rgb(202 143 32 / 48%);
 }
 
 .viewfinder {
@@ -300,7 +305,7 @@ a {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 0 0 3px rgb(202 143 32 / 28%);
-  animation: capture-hint 1.4s ease-in-out infinite;
+  animation: none;
 }
 
 .camera__capture:hover,
@@ -536,7 +541,7 @@ a {
 
 .camera-manual__steps li {
   display: grid;
-  grid-template-columns: 1.7rem 1fr;
+  grid-template-columns: 2.2rem 1fr;
   gap: 0.55rem;
   align-items: start;
   font-size: 0.82rem;
@@ -1277,7 +1282,6 @@ a {
 }
 
 .camera-manual__header,
-.camera-manual__steps,
 .camera-manual__legend,
 .camera-manual__note {
   position: relative;
@@ -1286,22 +1290,22 @@ a {
 
 .camera-manual__header {
   padding-bottom: 1rem;
-  border-bottom: 1px solid #ad5b49;
+  border-bottom: 1px solid #611e0f;
 }
 
 .camera-manual__kicker {
   margin-bottom: 0.45rem;
-  color: #9f3d2e;
-  font-size: 0.62rem;
-  font-weight: 700;
+  color: #3f1009;
+  font-size: 20rem;
+  font-weight: 100;
   letter-spacing: 0.13em;
 }
 
 .camera-manual h2 {
   margin: 0;
   color: #37291f;
-  font-size: clamp(1.55rem, 2.5vw, 2rem);
-  font-weight: 500;
+  font-size: clamp(1.80rem, 2.5vw, 2rem);
+  font-weight: 5000;
   letter-spacing: -0.02em;
 }
 
@@ -1309,7 +1313,7 @@ a {
   margin: 0.55rem 0 0;
   color: #74614f;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-style: italic;
   line-height: 1.4;
 }
@@ -1332,7 +1336,7 @@ a {
 }
 
 .camera-manual__steps .camera-manual__icon {
-  width: 1.9rem;
+  width: 2.9rem;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -1818,7 +1822,7 @@ a {
   }
 
   .camera-manual__intro {
-    font-size: 0.68rem;
+    font-size: 0.90rem;
   }
 
   .camera-manual__steps li {
@@ -1833,11 +1837,11 @@ a {
   }
 
   .camera-manual__steps strong {
-    font-size: 0.59rem;
+    font-size: 0.89rem;
   }
 
   .camera-manual__steps p {
-    font-size: 0.63rem;
+    font-size: 0.73rem;
   }
 
   .camera-manual__legend {
@@ -1848,7 +1852,8 @@ a {
   .camera-manual__legend span,
   .camera-manual__note,
   .camera-manual__kicker {
-    font-size: 0.53rem;
+    font-size: 0.73rem;
+    font-weight: 700;
   }
 }
 
@@ -1957,3 +1962,309 @@ a {
     font-size: 1.45rem;
   }
 }
+/* Transparent taped flower bridging the camera and manual */
+.camera-flower-decal {
+  position: absolute;
+  z-index: 7;
+  top: 6%;
+  right: 13%;
+  width: min(24vw, 320px);
+  pointer-events: none;
+}
+
+.camera-flower-decal img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  transform: rotate(155deg);
+  transform-origin: center;
+}
+
+.camera-flower-decal span {
+  position: absolute;
+  z-index: 2;
+  top: 17%;
+  left: 42%;
+  width: 6.4rem;
+  height: 1.25rem;
+  background: rgb(203 177 137 / 82%);
+  box-shadow: inset 0 0 0.15rem rgb(255 255 255 / 35%);
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+@media (max-width: 1180px) {
+  .camera-flower-decal {
+    top: 7%;
+    right: 12%;
+    width: min(26vw, 280px);
+  }
+}
+
+@media (max-width: 900px) {
+  .camera-flower-decal {
+    top: 2%;
+    right: -3%;
+    width: min(42vw, 270px);
+  }
+}
+
+@media (max-width: 640px) {
+  .camera-flower-decal {
+    right: 0;
+    width: 40vw;
+  }
+
+  .camera-flower-decal span {
+    width: 3.8rem;
+    height: 0.9rem;
+  }
+}
+
+/* Strong tactile decal cluster */
+.hero-decal--note {
+  top: 31%;
+  left: clamp(1rem, 3.5vw, 4rem);
+  width: clamp(9.5rem, 14vw, 12.5rem);
+  padding: 2.25rem 1.15rem 1.6rem;
+  border: 0;
+  background: rgb(255 248 232 / 96%);
+  box-shadow:
+    0.25rem 0.65rem 1.2rem rgb(76 47 25 / 18%),
+    inset 0 0 1.5rem rgb(126 88 49 / 7%);
+  color: rgb(74 57 42 / 92%);
+  font-size: clamp(0.82rem, 1.25vw, 1.08rem);
+  opacity: 1;
+  clip-path: polygon(
+    2% 0, 16% 1%, 29% 0, 43% 1%, 57% 0, 72% 1%, 86% 0, 100% 2%,
+    99% 16%, 100% 30%, 99% 45%, 100% 60%, 99% 75%, 100% 90%, 97% 100%,
+    82% 99%, 67% 100%, 51% 99%, 35% 100%, 19% 99%, 2% 100%,
+    1% 84%, 2% 68%, 0 52%, 2% 36%, 0 20%
+  );
+}
+
+.hero-decal__tape {
+  top: -0.3rem;
+  width: 4.4rem;
+  height: 1.35rem;
+  background: rgb(142 145 91 / 76%);
+  box-shadow: inset 0 0 0.18rem rgb(255 255 255 / 24%);
+}
+
+.hero-decal--pressed-flower-left {
+  top: 53%;
+  bottom: auto;
+  left: clamp(2rem, 6.2vw, 6.5rem);
+  z-index: 3;
+  width: clamp(8.5rem, 14vw, 12.5rem);
+  opacity: 0.94;
+  filter: drop-shadow(0.25rem 0.55rem 0.45rem rgb(83 53 28 / 16%));
+  transform: rotate(-7deg);
+  transform-origin: center;
+}
+
+.hero-decal--tape-left {
+  top: 72%;
+  bottom: auto;
+  left: clamp(4.6rem, 9vw, 9.5rem);
+  z-index: 4;
+  width: 4.3rem;
+  height: 1.1rem;
+  background: rgb(200 174 132 / 78%);
+  transform: rotate(17deg);
+}
+
+.hero-decal--ink-speckles {
+  top: 67%;
+  left: clamp(0.8rem, 3vw, 3.2rem);
+  width: 4.5rem;
+  height: 6rem;
+  opacity: 0.72;
+  background:
+    radial-gradient(circle at 18% 12%, #78804d 0 2px, transparent 2.5px),
+    radial-gradient(circle at 50% 24%, #78804d 0 4px, transparent 4.5px),
+    radial-gradient(circle at 26% 46%, #78804d 0 1.5px, transparent 2px),
+    radial-gradient(circle at 66% 58%, #78804d 0 3px, transparent 3.5px),
+    radial-gradient(circle at 38% 76%, #78804d 0 2px, transparent 2.5px),
+    radial-gradient(circle at 78% 88%, #78804d 0 1.5px, transparent 2px);
+  transform: rotate(-12deg);
+}
+
+.hero-decal--motto {
+  right: auto;
+  bottom: 5%;
+  left: clamp(8rem, 14vw, 14rem);
+  border-color: rgb(92 105 61 / 78%);
+  color: rgb(92 105 61 / 82%);
+  opacity: 1;
+  transform: rotate(8deg);
+}
+
+.hero-decal--cornell {
+  border-color: rgb(159 61 46 / 72%);
+  color: rgb(159 61 46 / 78%);
+  opacity: 1;
+}
+
+.hero-decal--sparkle-one,
+.hero-decal--sparkle-two,
+.hero-decal--sparkle-three,
+.hero-decal--dashes {
+  opacity: 0.88;
+}
+
+@media (max-width: 900px) {
+  .hero-decal--note {
+    left: -1rem;
+    opacity: 0.62;
+  }
+
+  .hero-decal--pressed-flower-left {
+    top: 55%;
+    left: -1.5rem;
+    width: 9rem;
+    opacity: 0.68;
+  }
+
+  .hero-decal--ink-speckles {
+    left: 0;
+    opacity: 0.44;
+  }
+
+  .hero-decal--motto {
+    left: 5rem;
+    opacity: 0.62;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-decal--pressed-flower-left {
+    top: 47%;
+    left: -2.5rem;
+    width: 7rem;
+    opacity: 0.36;
+  }
+
+  .hero-decal--ink-speckles,
+  .hero-decal--motto {
+    display: none;
+  }
+}
+
+/* Move pressed-flower cluster to the upper-right */
+.hero-decal--pressed-flower-left {
+  top: 7%;
+  right: clamp(1.5rem, 4vw, 4.5rem);
+  bottom: auto;
+  left: auto;
+  transform: rotate(10deg);
+}
+
+.hero-decal--tape-left {
+  top: 29%;
+  right: clamp(4.5rem, 8vw, 9rem);
+  bottom: auto;
+  left: auto;
+  transform: rotate(-16deg);
+}
+
+.hero-decal--ink-speckles {
+  top: 17%;
+  right: clamp(0.5rem, 2vw, 2rem);
+  bottom: auto;
+  left: auto;
+  transform: rotate(12deg);
+}
+
+@media (max-width: 900px) {
+  .hero-decal--pressed-flower-left {
+    top: 4%;
+    right: -1.5rem;
+    left: auto;
+  }
+
+  .hero-decal--tape-left {
+    top: 24%;
+    right: 2rem;
+    left: auto;
+  }
+
+  .hero-decal--ink-speckles {
+    top: 14%;
+    right: 0;
+    left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-decal--pressed-flower-left {
+    top: 3%;
+    right: -2.2rem;
+    left: auto;
+  }
+
+  .hero-decal--tape-left {
+    top: 18%;
+    right: 0.5rem;
+    left: auto;
+  }
+}
+
+/* Keep the flower cluster clear of the manual */
+.hero-decal--pressed-flower-left {
+  top: 1.5%;
+  right: clamp(1rem, 3vw, 3rem);
+  width: clamp(6.8rem, 10vw, 9rem);
+}
+
+.hero-decal--tape-left {
+  top: 19%;
+  right: clamp(2.8rem, 5.5vw, 6rem);
+}
+
+.hero-decal--ink-speckles {
+  top: 8%;
+  right: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .hero-decal--pressed-flower-left {
+    top: 1%;
+    right: -1rem;
+    width: 7.5rem;
+  }
+
+  .hero-decal--tape-left {
+    top: 17%;
+    right: 1.4rem;
+  }
+
+  .hero-decal--ink-speckles {
+    top: 7%;
+    right: -0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-decal--pressed-flower-left {
+    top: 0.5%;
+    right: -1.8rem;
+    width: 6rem;
+  }
+
+  .hero-decal--tape-left {
+    top: 13%;
+    right: 0.25rem;
+  }
+}
+
+/* Make only the symbols inside the Camera Manual buttons larger. */
+.camera-manual__steps .camera-manual__icon {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+

@@ -4,6 +4,7 @@ import CameraManual from './components/CameraManual'
 import Scrapbook from './components/Scrapbook'
 import ProjectModal from './components/ProjectModal'
 import BotanicalFlower from './assets/botanical-flower.png'
+import PressedFlower from './assets/pressed-flower.webp'
 import CornellTower from './assets/cornell-tower-decal.png'
 import CornellCampusPhoto from './assets/cornell-autumn-campus.webp'
 import { sections } from './data/sections'
@@ -112,16 +113,11 @@ function App() {
           </div>
           <img
             className="hero-decal hero-decal--pressed-flower-left"
-            src={BotanicalFlower}
+            src={PressedFlower}
             alt=""
           />
-          <img
-            className="hero-decal hero-decal--pressed-flower-right"
-            src={BotanicalFlower}
-            alt=""
-          />
+          <span className="hero-decal hero-decal--ink-speckles" />
           <span className="hero-decal hero-decal--tape-left" />
-          <span className="hero-decal hero-decal--tape-right" />
           <div className="hero-decal hero-decal--cornell">
             <span>Cornell</span>
             <b>C</b>
@@ -139,6 +135,10 @@ function App() {
         </div>
 
         <div className="portfolio-stage">
+          <div className="camera-flower-decal" aria-hidden="true">
+            <img src={BotanicalFlower} alt="" />
+            <span />
+          </div>
           <div className="camera-column">
             <CameraShell
               sections={navigationSections}
@@ -190,3 +190,7 @@ function App() {
 }
 
 export default App
+
+
+
+
