@@ -1,9 +1,13 @@
 ﻿export const experiences = [
   {
-    company: 'CEV',
-    role: 'Add your role',
-    date: 'Add dates',
-    description: 'Add two or three sentences about what you built, learned, or improved.',
+    company: 'Cornell Electric Vehicles',
+    role: 'Telemetry Subteam Engineer',
+    date: 'November 2025-Present' ,
+    description:
+  '\u2022 Built dashboards to visualize 10+ live sensor streams for vehicle diagnostics.\n' + 
+ '\u2022 Architected a ROS2 telemetry system over Starlink + Tailscale VPN, configuring FastDDS data transport to achieve\n'+
+' latency of 30ms reading from a shared memory buffer and writing to live subscriber database.\n' +
+ '\u2022 Designed and built team"s first self-sustainable telemetry system earning the Shell-Eco Marathon Award'
   },
   {
     company: 'CS3',

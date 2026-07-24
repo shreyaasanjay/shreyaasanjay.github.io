@@ -121,17 +121,17 @@ function App() {
           <figure className="hero-memory-polaroid hero-memory-polaroid--bench">
             <span />
             <img src={CornellBenchPhoto} alt="" />
-            <figcaption>Cornell · summer</figcaption>
+            <figcaption>New York, USA </figcaption>
           </figure>
           <figure className="hero-memory-polaroid hero-memory-polaroid--travel">
             <span />
             <img src={NewOrleansPhoto} alt="" />
-            <figcaption>Camera roll · 02</figcaption>
+            <figcaption>New Orleans, USA </figcaption>
           </figure>
           <figure className="hero-memory-polaroid hero-memory-polaroid--friends">
             <span />
             <img src={FriendsPhoto} alt="" />
-            <figcaption>Friends · Cornell</figcaption>
+            <figcaption>New York, USA </figcaption>
           </figure>
           <img
             className="hero-decal hero-decal--pressed-flower-left"

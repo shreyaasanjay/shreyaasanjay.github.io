@@ -89,9 +89,9 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
 
       <section className="contact-postcard" id="contact">
         <div>
-          <p className="scrapbook-kicker">The next chapter</p>
-          <h2>Let’s make something meaningful.</h2>
-          <p>I’m always happy to talk about projects, research, and new ideas.</p>
+          <p className="scrapbook-kicker">Contact</p>
+          <h2>Connect with Me!</h2>
+          <p>I’m always happy to talk about projects, research, and new technology!</p>
         </div>
         <a href="mailto:ss4457@cornell.edu">ss4457@cornell.edu →</a>
       </section>

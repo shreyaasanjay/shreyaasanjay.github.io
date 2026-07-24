@@ -31,7 +31,7 @@ function CameraManual() {
           <span className="camera-manual__icon" aria-hidden="true"> 2</span>
           <div>
             <strong>Take a picture</strong>
-            <p>Press the shutter button to print your portfolio photo.</p>
+            <p>Press the shutter button to take the polaroid photo</p>
           </div>
         </li>
         <li>
