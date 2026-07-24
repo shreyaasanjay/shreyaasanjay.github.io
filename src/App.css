@@ -1968,7 +1968,7 @@ a {
   z-index: 7;
   top: 6%;
   right: 13%;
-  width: min(24vw, 320px);
+  width: min(12vw, 320px);
   pointer-events: none;
 }
 
@@ -2339,4 +2339,287 @@ a {
     width: min(100%, 18rem);
     justify-self: center;
   }
+}
+
+
+
+/* Cornell portrait moved outside the LCD as a scrapbook background photo. */
+.hero-portrait-polaroid {
+  position: absolute;
+  z-index: 6;
+  bottom: 14%;
+  left: clamp(0.75rem, 3vw, 3.5rem);
+  width: clamp(9rem, 11vw, 10.5rem);
+  margin: 0;
+  padding: 0.45rem 0.45rem 1.5rem;
+  background: #fffaf0;
+  box-shadow: 0.5rem 0.9rem 1.5rem rgb(75 48 27 / 18%);
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+.hero-portrait-polaroid > span {
+  position: absolute;
+  z-index: 2;
+  top: -0.6rem;
+  left: 50%;
+  width: 4rem;
+  height: 1.1rem;
+  background: rgb(189 200 157 / 72%);
+  transform: translateX(-50%) rotate(4deg);
+}
+
+.hero-portrait-polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.hero-portrait-polaroid figcaption {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.38rem;
+  color: #75614f;
+  font-family: 'Segoe Print', 'Bradley Hand', cursive;
+  font-size: 0.62rem;
+}
+
+@media (max-width: 1180px) {
+  .hero-portrait-polaroid {
+    bottom: 10%;
+    left: -0.5rem;
+    width: 8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-portrait-polaroid {
+    bottom: auto;
+    top: 43%;
+    left: -0.75rem;
+    width: 7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-portrait-polaroid {
+    top: 46%;
+    left: -0.25rem;
+    width: 5.75rem;
+  }
+}
+
+/* Larger outside portrait. */
+.hero-portrait-polaroid {
+  width: clamp(10rem, 14vw, 13.5rem);
+}
+
+@media (max-width: 1180px) {
+  .hero-portrait-polaroid {
+    width: 10.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-portrait-polaroid {
+    width: 8.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-portrait-polaroid {
+    width: 7rem;
+  }
+}
+
+/* Taped memory-photo cluster replacing the upper-left note. */
+.hero-memory-polaroid {
+  position: absolute;
+  margin: 0;
+  padding: 0.4rem 0.4rem 1.35rem;
+  background: #fffaf0;
+  box-shadow: 0.45rem 0.8rem 1.35rem rgb(75 48 27 / 20%);
+  pointer-events: none;
+}
+
+.hero-memory-polaroid > span {
+  position: absolute;
+  z-index: 2;
+  top: -0.55rem;
+  left: 50%;
+  width: 3.75rem;
+  height: 1rem;
+  background: rgb(189 200 157 / 78%);
+  box-shadow: inset 0 0 0.15rem rgb(255 255 255 / 35%);
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.hero-memory-polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.hero-memory-polaroid figcaption {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.33rem;
+  color: #75614f;
+  font-family: 'Segoe Print', 'Bradley Hand', cursive;
+  font-size: 0.57rem;
+  white-space: nowrap;
+}
+
+.hero-memory-polaroid--bench {
+  z-index: 4;
+  top: 3%;
+  left: 1%;
+  width: clamp(13rem, 10vw, 10.5rem);
+  transform: rotate(-8deg);
+}
+
+.hero-memory-polaroid--travel {
+  z-index: 3;
+  top: 16%;
+  left: clamp(12rem, 12vw, 10.5rem);
+  width: clamp(13rem, 9vw, 9.5rem);
+  transform: rotate(6deg);
+}
+
+.hero-memory-polaroid--friends {
+  z-index: 5;
+  top: 39%;
+  left: clamp(0.5rem, 5vw, 5.5rem);
+  width: clamp(14rem, 11vw, 11.5rem);
+  transform: rotate(-2deg);
+}
+
+@media (max-width: 1180px) {
+  .hero-memory-polaroid--bench {
+    left: -1rem;
+    width: 9rem;
+  }
+
+  .hero-memory-polaroid--travel {
+    top: 6%;
+    left: 20rem;
+    width: 9rem;
+  }
+
+  .hero-memory-polaroid--friends {
+    top: 42%;
+    left: 1.5rem;
+    width: 20rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-memory-polaroid--bench {
+    top: 1%;
+    width: 9rem;
+  }
+
+  .hero-memory-polaroid--travel {
+    top: 3%;
+    left: 20rem;
+    width: 9rem;
+  }
+
+  .hero-memory-polaroid--friends {
+    top: 46%;
+    left: 0.75rem;
+    width: 95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-memory-polaroid {
+    padding: 0.3rem 0.3rem 1.1rem;
+  }
+
+  .hero-memory-polaroid--bench {
+    left: -1.5rem;
+    width: 9rem;
+  }
+
+  .hero-memory-polaroid--travel {
+    left: 20rem;
+    width: 9rem;
+  }
+
+  .hero-memory-polaroid--friends {
+    top: 53%;
+    left: -0.25rem;
+    width: 9rem;
+  }
+}
+
+/* Larger, clearer shutter control and an unobstructed instruction card. */
+.camera__capture {
+  width: 6.2%;
+  min-width: 28px;
+  font-size: 0;
+}
+
+.camera__capture-dot {
+  width: 62%;
+  aspect-ratio: 1;
+  border: 2px solid #fff3d4;
+  border-radius: 50%;
+  background: #c84137;
+  box-shadow:
+    0 0 0 2px rgb(200 65 55 / 24%),
+    inset 0 0.1rem 0.18rem rgb(255 255 255 / 35%);
+}
+
+.camera__capture:hover .camera__capture-dot,
+.camera__capture:focus-visible .camera__capture-dot {
+  background: #e05245;
+  box-shadow: 0 0 0 4px rgb(242 201 76 / 35%);
+}
+
+.camera__capture:disabled .camera__capture-dot {
+  opacity: 0.38;
+}
+
+.camera__capture-guide {
+  top: 20%;
+  left: 21%;
+}
+
+.camera__capture-guide-arrow {
+  right: auto;
+  bottom: -1.5rem;
+  left: 1.35rem;
+  transform: rotate(-5deg);
+}
+
+@media (max-width: 640px) {
+  .camera__capture {
+    min-width: 24px;
+  }
+
+  .camera__capture-guide {
+    top: 20%;
+    left: 35%;
+  }
+
+  .camera__capture-guide-arrow {
+    bottom: -3.55rem;
+    left: -4.65rem;
+  }
+}
+
+
+/* Prevent photo decals from shifting when scrolling becomes available. */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Use the upright yellow pressed flower behind the camera manual. */
+.camera-flower-decal img {
+  transform: rotate(-8deg);
 }

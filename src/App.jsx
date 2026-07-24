@@ -6,7 +6,10 @@ import ProjectModal from './components/ProjectModal'
 import BotanicalFlower from './assets/botanical-flower.png'
 import PressedFlower from './assets/pressed-flower.webp'
 import CornellTower from './assets/cornell-tower-decal.png'
-import CornellCampusPhoto from './assets/cornell-autumn-campus.webp'
+import ShutterPhoto from './assets/shutter-lake.jpg'
+import CornellBenchPhoto from './assets/memory-cornell-bench.jpg'
+import NewOrleansPhoto from './assets/memory-new-orleans.jpg'
+import FriendsPhoto from './assets/memory-friends.jpg'
 import { sections } from './data/sections'
 import { experiences, projects, skillGroups } from './data/portfolio'
 import './App.css'
@@ -35,6 +38,7 @@ function App() {
     setActiveSection('home')
 
     if (!nextPowerState) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
       setHasTakenPhoto(false)
       setIsDeveloped(false)
       setSelectedProject(null)
@@ -63,6 +67,14 @@ function App() {
 
     return () => window.clearTimeout(scrollTimer)
   }, [isDeveloped])
+
+  useEffect(() => {
+    document.body.style.overflowY = hasTakenPhoto ? '' : 'hidden'
+
+    return () => {
+      document.body.style.overflowY = ''
+    }
+  }, [hasTakenPhoto])
 
   return (
     <main className="site-shell">
@@ -106,11 +118,21 @@ function App() {
 
       <section className="camera-hero" id="camera-hero">
         <div className="hero-decals" aria-hidden="true">
-          <div className="hero-decal hero-decal--note">
-            <span className="hero-decal__tape" />
-            Rooted in curiosity,<br />driven by impact.
-            <span className="hero-decal__heart">♡</span>
-          </div>
+          <figure className="hero-memory-polaroid hero-memory-polaroid--bench">
+            <span />
+            <img src={CornellBenchPhoto} alt="" />
+            <figcaption>Cornell · summer</figcaption>
+          </figure>
+          <figure className="hero-memory-polaroid hero-memory-polaroid--travel">
+            <span />
+            <img src={NewOrleansPhoto} alt="" />
+            <figcaption>Camera roll · 02</figcaption>
+          </figure>
+          <figure className="hero-memory-polaroid hero-memory-polaroid--friends">
+            <span />
+            <img src={FriendsPhoto} alt="" />
+            <figcaption>Friends · Cornell</figcaption>
+          </figure>
           <img
             className="hero-decal hero-decal--pressed-flower-left"
             src={PressedFlower}
@@ -123,11 +145,6 @@ function App() {
             <b>C</b>
             <small>Ithaca · 1865</small>
           </div>
-          <div className="hero-decal hero-decal--motto">
-            <span>Day by day</span>
-            <b>✦</b>
-            <span>Better</span>
-          </div>
           <span className="hero-decal hero-decal--sparkle-one">✦</span>
           <span className="hero-decal hero-decal--sparkle-two">✧</span>
           <span className="hero-decal hero-decal--sparkle-three">✦</span>
@@ -136,8 +153,7 @@ function App() {
 
         <div className="portfolio-stage">
           <div className="camera-flower-decal" aria-hidden="true">
-            <img src={BotanicalFlower} alt="" />
-            <span />
+            <img src={PressedFlower} alt="" />
           </div>
           <div className="camera-column">
             <CameraShell
@@ -159,7 +175,7 @@ function App() {
               aria-hidden={!hasTakenPhoto}
             >
               <span className="developing-photo__image">
-                <img src={CornellCampusPhoto} alt="Cornell campus in autumn with McGraw Tower" />
+                <img src={ShutterPhoto} alt="Lake and waterfall surrounded by trees" />
               </span>
               <strong>Portfolio captured</strong>
               <span>{isDeveloped ? 'Developed ✓' : 'Click to develop ↓'}</span>
@@ -170,7 +186,7 @@ function App() {
         </div>
       </section>
 
-      {isDeveloped && (
+      {isPoweredOn && isDeveloped && (
         <Scrapbook
           experiences={experiences}
           projects={projects}
@@ -190,6 +206,20 @@ function App() {
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

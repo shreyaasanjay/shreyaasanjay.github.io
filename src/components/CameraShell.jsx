@@ -1,4 +1,4 @@
-import CameraControls from './CameraControls'
+﻿import CameraControls from './CameraControls'
 import CameraImage from '../assets/camera-illustrated.png'
 import Viewfinder from './Viewfinder'
 import { useEffect, useState } from 'react'
@@ -33,7 +33,7 @@ function CameraShell({
   }
 
   return (
-    <section className="camera" aria-label="Shreyaa’s portfolio camera">
+    <section className="camera" aria-label="Shreyaaâ€™s portfolio camera">
       <img
         className="camera__image"
         src={CameraImage}
@@ -45,7 +45,7 @@ function CameraShell({
         <div className="camera__capture-guide" aria-hidden="true">
           <span className="camera__capture-guide-kicker"></span>
           <strong>Press to take a picture</strong>
-          <span className="camera__capture-guide-arrow">↓</span>
+          <span className="camera__capture-guide-arrow">↙</span>
         </div>
       )}
 
@@ -67,7 +67,7 @@ function CameraShell({
           disabled={hasTakenPhoto}
           aria-label={hasTakenPhoto ? 'Picture captured' : 'Take picture'}
         >
-          <span aria-hidden="true">↓</span>
+          <span className="camera__capture-dot" aria-hidden="true" />
         </button>
       )}
 
@@ -99,5 +99,6 @@ function CameraShell({
 }
 
 export default CameraShell
+
 
 

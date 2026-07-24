@@ -1,4 +1,4 @@
-﻿import IntroPortrait from '../assets/intro-portrait.jpg'
+﻿import ProfileHeadshot from '../assets/profile-headshot.jpg'
 
 function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
   return (
@@ -17,7 +17,7 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
 
         <figure className="scrapbook-intro__photo">
           <span aria-hidden="true" />
-          <img src={IntroPortrait} alt="Shreyaa at Cornell" />
+          <img src={ProfileHeadshot} alt="Portrait of Shreyaa" />
           <figcaption>New Jersey, USA</figcaption>
         </figure>
       </section>
@@ -100,4 +100,5 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
 }
 
 export default Scrapbook
+
 
