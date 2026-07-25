@@ -30,8 +30,8 @@
 
 export const projects = [
   {
-    id: 'lablens',
-    title: 'LabLens',
+    id: 'new project',
+    title: 'new project',
     category: 'Software + AI',
     description: 'Currently Building....',
     details: 'Currently Working On...',
@@ -39,10 +39,10 @@ export const projects = [
   },
   {
     id: 'cervicheck',
-    title: 'FileSystem Swipe Sorter',
+    title: 'new project',
     category: 'Application',
     description: 'Currently building...',
-    details: 'Tinder-like swiping system for organizing files based on storage',
+    details: 'xxxxxxxxx',
     accent: 'sage',
   },
   {
@@ -55,8 +55,8 @@ export const projects = [
   },
   {
     id: 'nasa-sees',
-    title: 'Productivity Agents',
-    category: 'AI Agents',
+    title: 'new project',
+    category: 'new project',
     description: 'Research and software work completed through NASA SEES.',
     details: 'Describe the research question, the tools you used, and the most interesting result.',
     accent: 'red',
