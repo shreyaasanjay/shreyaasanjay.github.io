@@ -2,7 +2,7 @@
 
  Full sizing works for full browser screen
 
- todo
+ todos:
  1. finish up sizing for photos for all media versions
  2. finish up project descriptions after the projects are done
  3. finish up skills section - find a good way
