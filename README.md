@@ -8,7 +8,8 @@
  3. finish up skills section - find a good way
  to organize the information (include ai skills)
  4. maybe re-write experience bullet points so theyre more concise 
- 5. put the yellow glow around the manual 
+ 5. put the yellow glow around the manual
+ 6. add social media links (linkedin), add githubs for all projects and general github
 
 
 
