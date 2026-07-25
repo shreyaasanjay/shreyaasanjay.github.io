@@ -65,6 +65,6 @@ export const projects = [
 
 export const skillGroups = [
   { label: 'Languages', items: ['Python, Java, JavaScript, HTML/CSS'] },
-  { label: 'Frameworks', items: ['React', 'Vite', 'Add frameworks'] },
+  { label: 'Frameworks', items: ['React', 'Vite', 'Express.js','Pytorch'] },
   { label: 'Tools', items: ['Git', 'GitHub', 'Docker'] },
 ]
