@@ -9,13 +9,13 @@
   },
 
 
-
+//to get a 95% accuracy
   {
     company: 'Center for Smart StreetScapes, WINLAB',
     role: 'Machine Learning Intern',
     date: 'May 2026-August 2026',
     description: `\u2022 Designed multi-agentic system answering live questions from a 4-camera smart space
-    \u2022 Incorporated agent guardrails, a runtime monitor tracking agent communication channels and a thorough grounding eval system to get a 95% accuracy rate 
+    \u2022 Incorporated agent guardrails, a runtime monitor tracking agent communication channels and a thorough grounding eval system  
     \u2022 Implemented a PlusCal/TLA+ and TLC protocol to recursively fine tune topology`
   },
   {
