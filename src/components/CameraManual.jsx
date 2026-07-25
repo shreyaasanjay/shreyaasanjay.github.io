@@ -23,8 +23,8 @@ function CameraManual() {
         <li>
           <span className="camera-manual__icon" aria-hidden="true"> 1</span>
           <div>
-            <strong>Power up the camera</strong>
-            <p>Press ON.</p>
+            <strong>Press ON</strong>
+            <p>Power up the camera</p>
           </div>
         </li>
         <li>
@@ -37,8 +37,8 @@ function CameraManual() {
         <li>
           <span className="camera-manual__icon" aria-hidden="true"> 3</span>
           <div>
-            <strong>Develop</strong>
-            <p> Click on the polaroid to reveal the scrapbook.</p>
+            <strong>Click on the photo</strong>
+            <p> Develop the polaroid to reveal the scrapbook.</p>
           </div>
         </li>
         <li>

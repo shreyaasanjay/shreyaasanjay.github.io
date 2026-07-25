@@ -1,3 +1,31 @@
+# Software Portfolio 
+
+# Full sizing works for full browser screen
+
+# todo
+# 1. finish up sizing for photos for all media versions
+# 2. finish up project descriptions after the projects are done
+# 3. finish up skills section - find a good way
+# to organize the information (include ai skills)
+# 4. maybe re-write experience bullet points so theyre more concise 
+# 5. put the yellow glow around the manual 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
