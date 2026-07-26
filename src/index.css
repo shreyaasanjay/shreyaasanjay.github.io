@@ -1,5 +1,5 @@
 ﻿:root {
-  --page: #efd3ad88;
+  --page: #eeece9;
   --camera-body: #343434;
   --camera-edge: #151515;
   --camera-label: #d7d7d7;
@@ -29,8 +29,8 @@ body {
   background: radial-gradient(
     ellipse at 50% 28%,
     #fff8ed 0%,
-    #f7e3c9 48%,
-    #e8c59b 100%
+    #f9f9f6 48%,
+    #dcd8d2 100%
   );
   background-attachment: fixed;
 }

@@ -107,13 +107,10 @@ a {
   opacity: 0.97;
   mix-blend-mode: multiply;
   filter:
-    grayscale(0.05)
-    sepia(0.85)
-    saturate(1.5)
-    hue-rotate(-12deg)
+    grayscale(1)
     contrast(1.08)
     brightness(0.88)
-    drop-shadow(0 1.4rem 1.1rem rgb(92 57 27 / 24%));
+    drop-shadow(0 1.4rem 1.1rem rgba(23, 23, 23, 0.24));
 }
 
 .camera::after {
@@ -337,8 +334,8 @@ a {
   padding: 0;
   border: 1px solid #090909;
   border-radius: 50%;
-  background: #916f56;
-  color: #e6dede;
+  background: #282727;
+  color: #282727;
   font-family: var(--mono);
   font-size: clamp(0.50rem, 0.72vw, 0.62rem);
   font-weight: 700;
@@ -1875,7 +1872,7 @@ a {
 /* Elegant shutter instruction */
 .camera__capture-guide {
   top: 18%;
-  left: 8.5%;
+  left: 10.5%;
   width: clamp(7.8rem, 18%, 11rem);
   display: grid;
   gap: 0.18rem;
@@ -1905,7 +1902,7 @@ a {
 }
 
 .camera__capture-guide-kicker {
-  color: #9f3d2e;
+  color: #3c1610;
   font-family: var(--mono);
   font-size: clamp(0.32rem, 0.48vw, 0.46rem);
   font-weight: 700;
@@ -1924,8 +1921,8 @@ a {
 .camera__capture-guide-arrow {
   position: absolute;
   right: 24%;
-  bottom: -2.5rem;
-  color: rgb(159 61 46 / 78%);
+  bottom: -2.9rem;
+  color: rgba(244, 241, 240, 0.78);
   font-family: Baskerville, Georgia, serif;
   font-size: clamp(1.25rem, 2.2vw, 2rem);
   line-height: 1;
@@ -1935,7 +1932,7 @@ a {
 @media (max-width: 640px) {
   .camera__capture-guide {
     top: 2%;
-    left: 5%;
+    left: 12%;
     width: 7.2rem;
     padding: 0.45rem 0.5rem;
   }
@@ -2588,14 +2585,14 @@ a {
 }
 
 .camera__capture-guide {
-  top: 20%;
-  left: 21%;
+  top: 22%;
+  left: 15%;
 }
 
 .camera__capture-guide-arrow {
   right: auto;
-  bottom: -1.5rem;
-  left: 1.35rem;
+  bottom: -1.8rem;
+  left: 1.15rem;
   transform: rotate(-5deg);
 }
 
