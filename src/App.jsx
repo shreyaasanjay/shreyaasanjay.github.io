@@ -4,7 +4,6 @@ import CameraManual from './components/CameraManual'
 import Scrapbook from './components/Scrapbook'
 import ProjectModal from './components/ProjectModal'
 import BotanicalFlower from './assets/botanical-flower.png'
-import PressedFlower from './assets/pressed-flower.webp'
 import CornellTower from './assets/cornell-tower-decal.png'
 import ShutterPhoto from './assets/shutter-lake.jpg'
 import CornellBenchPhoto from './assets/memory-cornell-bench.jpg'
@@ -80,7 +79,7 @@ function App() {
     <main className="site-shell">
       <header className="portfolio-toolbar">
         <a className="portfolio-toolbar__title" href="#camera-hero">
-          Shreyaa’s Portfolio
+          Shreyaa Sanjay . Software Portfolio
         </a>
         {isDeveloped && (
           <nav aria-label="Main navigation">
@@ -133,11 +132,6 @@ function App() {
             <img src={FriendsPhoto} alt="" />
             <figcaption>New York, USA </figcaption>
           </figure>
-          <img
-            className="hero-decal hero-decal--pressed-flower-left"
-            src={PressedFlower}
-            alt=""
-          />
           <span className="hero-decal hero-decal--ink-speckles" />
           <span className="hero-decal hero-decal--tape-left" />
           <div className="hero-decal hero-decal--cornell">
@@ -152,9 +146,6 @@ function App() {
         </div>
 
         <div className="portfolio-stage">
-          <div className="camera-flower-decal" aria-hidden="true">
-            <img src={PressedFlower} alt="" />
-          </div>
           <div className="camera-column">
             <CameraShell
               sections={navigationSections}
@@ -177,7 +168,7 @@ function App() {
               <span className="developing-photo__image">
                 <img src={ShutterPhoto} alt="Lake and waterfall surrounded by trees" />
               </span>
-              <strong>Portfolio captured</strong>
+              <strong>Photo Captured</strong>
               <span>{isDeveloped ? 'Developed ✓' : 'Click to develop ↓'}</span>
             </button>
           </div>

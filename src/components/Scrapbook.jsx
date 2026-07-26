@@ -9,8 +9,7 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
           <h2>About Me</h2>
           <p>
             Hey! I’m Shreyaa Sanjay, a Cornell University student studying Computer
-            Science and ECE. I love learning about how physical systems connect to
-            software and love building tools for social impact. I also enjoy watching
+            Science and ECE. I enjoy building full stack apps, agentic and applied ai and human centered tech! I also enjoy watching
             bollywood movies, thrifting and sewing clothes, and photography!
           </p>
         </div>
