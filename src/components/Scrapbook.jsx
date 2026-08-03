@@ -1,6 +1,6 @@
 ﻿import ProfileHeadshot from '../assets/profile-headshot.jpg'
 
-function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
+function Scrapbook({ experiences, projects, research, skillGroups, onProjectOpen }) {
   return (
     <article className="scrapbook" aria-label="Shreyaa’s portfolio scrapbook">
       <section className="scrapbook-intro" id="home">
@@ -44,7 +44,7 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
         <section className="scrapbook-page projects-page" id="projects">
           <header className="section-heading">
             <span>Chapter 03</span>
-            <h2>Selected Projects</h2>
+            <h2>Software Projects</h2>
           </header>
 
           <div className="project-grid">
@@ -68,9 +68,45 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
         </section>
       </div>
 
-      <section className="skills-strip" id="skills">
+      
+      <section className="research-notes" id="research">
         <header className="section-heading">
           <span>Chapter 04</span>
+          <h2>Research</h2>
+        </header>
+
+        <div className="research-notes__grid">
+          {research.map((item, index) => (
+            <article className="research-note" key={item.lab}>
+              <span className="research-note__index">0{index + 1}</span>
+              <p className="research-note__focus">{item.focus}</p>
+              <h3>{item.lab}</h3>
+              <p className="research-note__role">{item.role}</p>
+              <p className="research-note__date">{item.date}</p>
+              <p className="research-note__summary">{item.summary}</p>
+              <div className="research-note__attachments" aria-label={`${item.lab} attachments`}>
+                {item.attachments.map((attachment) =>
+                  attachment.href ? (
+                    <a
+                      key={attachment.label}
+                      href={attachment.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {attachment.label} <b>↗</b>
+                    </a>
+                  ) : (
+                    <span key={attachment.label}>{attachment.label} <b>↗</b></span>
+                  ),
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="skills-strip" id="skills">
+        <header className="section-heading">
+          <span>Chapter 05</span>
           <h2>Skills</h2>
         </header>
         <div className="skill-stamps">
@@ -79,7 +115,7 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
               <span aria-hidden="true">✦</span>
               <div>
                 <h3>{group.label}</h3>
-                <p>{group.items.join(' · ')}</p>
+                <div className="skill-stamp__items">{group.items.map((item) => <span key={item}>{item}</span>)}</div>
               </div>
             </article>
           ))}
@@ -99,5 +135,10 @@ function Scrapbook({ experiences, projects, skillGroups, onProjectOpen }) {
 }
 
 export default Scrapbook
+
+
+
+
+
 
 

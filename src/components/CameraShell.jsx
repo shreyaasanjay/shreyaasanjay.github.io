@@ -41,14 +41,6 @@ function CameraShell({
         aria-hidden="true"
       />
 
-      {isPoweredOn && !hasTakenPhoto && (
-        <div className="camera__capture-guide" aria-hidden="true">
-          <span className="camera__capture-guide-kicker"></span>
-          <strong>Press to take a picture</strong>
-          <span className="camera__capture-guide-arrow">↙</span>
-        </div>
-      )}
-
       <button
         className="camera__power"
         type="button"
@@ -99,6 +91,7 @@ function CameraShell({
 }
 
 export default CameraShell
+
 
 
 

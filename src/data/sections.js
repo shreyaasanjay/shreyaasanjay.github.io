@@ -21,6 +21,12 @@
     placeholder: 'LabLens, CerviCheck, Bonassar Lab GUI, NASA SEES project',
   },
   {
+    id: 'research',
+    shortLabel: 'RS',
+    label: 'Research',
+    heading: 'Research Notes',
+    placeholder: 'Papers, posters, and conferences',
+  },  {
     id: 'skills',
     shortLabel: 'SK',
     label: 'Skills',
@@ -35,3 +41,4 @@
     placeholder: 'ss4457@cornell.edu & Linkedin',
   },
 ]
+

@@ -510,8 +510,8 @@ a {
   position: absolute;
   top: -0.6rem;
   left: 50%;
-  width: 4.5rem;
-  height: 1.2rem;
+  width: 5%;
+  height: 1.8rem;
   background: rgb(210 180 137 / 65%);
   transform: translateX(-50%) rotate(-2deg);
 }
@@ -520,7 +520,7 @@ a {
   margin: 0 0 0.4rem;
   color: #8a5c2d;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1354,7 +1354,7 @@ a {
   margin-bottom: 0.15rem;
   color: #3e3026;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -2474,89 +2474,11 @@ a {
   white-space: nowrap;
 }
 
-.hero-memory-polaroid--bench {
-  z-index: 4;
-  top: 3%;
-  left: 1%;
-  width: clamp(12rem, 10vw, 10rem);
-  transform: rotate(-8deg);
-}
 
-.hero-memory-polaroid--travel {
-  z-index: 3;
-  top: 17%;
-  left: clamp(1.5rem, 11vw, 10.5rem);
-  width: clamp(13rem, 9vw, 9rem);
-  transform: rotate(6deg);
-}
 
-.hero-memory-polaroid--friends {
-  z-index: 5;
-  top: 39%;
-  left: clamp(1.5rem, 5vw, 5.5rem);
-  width: clamp(14rem, 10vw, 10rem);
-  transform: rotate(-2deg);
-}
 
-@media (max-width: 1180px) {
-  .hero-memory-polaroid--bench {
-    left: -1rem;
-    width: 8rem;
-  }
 
-  .hero-memory-polaroid--travel {
-    top: 6%;
-    left: clamp(4.75rem, 8vw, 6rem);
-    width: 7.25rem;
-  }
 
-  .hero-memory-polaroid--friends {
-    top: 22%;
-    left: 1.25rem;
-    width: 8.5rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-memory-polaroid--bench {
-    top: 1%;
-    width: 6.5rem;
-  }
-
-  .hero-memory-polaroid--travel {
-    top: 3%;
-    left: clamp(3.75rem, 12vw, 5rem);
-    width: 6rem;
-  }
-
-  .hero-memory-polaroid--friends {
-    top: 16%;
-    left: 0.75rem;
-    width: 7.25rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-memory-polaroid {
-    padding: 0.3rem 0.3rem 1.1rem;
-  }
-
-  .hero-memory-polaroid--bench {
-    left: -1rem;
-    width: 5.25rem;
-  }
-
-  .hero-memory-polaroid--travel {
-    left: clamp(2.6rem, 12vw, 3.5rem);
-    width: 5rem;
-  }
-
-  .hero-memory-polaroid--friends {
-    top: 13%;
-    left: 0;
-    width: 6rem;
-  }
-}
 /* Larger, clearer shutter control and an unobstructed instruction card. */
 .camera__capture {
   width: 6.2%;
@@ -2672,4 +2594,508 @@ html {
   }
 }
 
+
+
+/* Research chapter: pinned notes with space for papers and conference records. */
+.research-notes {
+  margin-top: clamp(4rem, 9vw, 8rem);
+}
+
+.research-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.research-note {
+  position: relative;
+  min-height: 19rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  overflow: hidden;
+  border: 1px solid rgb(93 61 34 / 18%);
+  background:
+    linear-gradient(90deg, transparent 2.1rem, rgb(159 61 46 / 12%) 2.15rem, transparent 2.2rem),
+    repeating-linear-gradient(to bottom, transparent 0, transparent 1.7rem, rgb(93 61 34 / 9%) 1.75rem),
+    #fffdf5;
+  box-shadow: 0 1rem 1.6rem rgb(84 50 25 / 12%);
+  transform: rotate(-0.7deg);
+}
+
+.research-note:nth-child(even) {
+  transform: rotate(0.8deg);
+}
+
+.research-note::before {
+  content: '';
+  position: absolute;
+  top: -0.65rem;
+  right: 2.25rem;
+  width: 4.5rem;
+  height: 1.25rem;
+  background: rgb(208 181 137 / 72%);
+  transform: rotate(4deg);
+}
+
+.research-note__index {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.85rem;
+  color: rgb(159 61 46 / 32%);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.1rem;
+}
+
+.research-note__focus,
+.research-note__role,
+.research-note__date {
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+
+.research-note__focus {
+  margin: 0 2rem 1.25rem 1.1rem;
+  color: #9f3d2e;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.research-note h3 {
+  max-width: 18rem;
+  margin: 0 0 0.35rem 1.1rem;
+  color: #382a21;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+  font-weight: 500;
+}
+
+.research-note__role,
+.research-note__date {
+  margin: 0.25rem 0 0 1.1rem;
+  color: #805b3d;
+  font-size: 0.66rem;
+}
+
+.research-note__date {
+  color: #8d7863;
+}
+
+.research-note__summary {
+  margin: 1.25rem 0 1.5rem 1.1rem;
+  color: #625548;
+  font-size: 0.9rem;
+  line-height: 1.62;
+  white-space: pre-line;
+}
+
+.research-note__attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-left: 1.1rem;
+}
+
+.research-note__attachments span,
+.research-note__attachments a {
+  padding: 0.35rem 0.5rem;
+  border: 1px dashed rgb(93 61 34 / 34%);
+  background: rgb(255 250 240 / 88%);
+  color: #6a4c35;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.research-note__attachments b {
+  color: #a64738;
+}
+
+@media (max-width: 700px) {
+  .research-notes__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Larger first-screen composition. Keep the manual desktop-only so it never crowds the camera. */
+@media (min-width: 1181px) {
+  .portfolio-stage {
+    width: min(100% - 1.5rem, 1520px);
+  }
+
+  .camera-column {
+    width: min(84vw, 1120px);
+    transform: translateY(-4vh);
+  }
+
+  .portfolio-stage > .camera-manual {
+    right: clamp(0.5rem, 2vw, 2rem);
+    bottom: 24%;
+    width: min(20vw, 290px);
+    min-width: 250px;
+    padding: 1.45rem 1.2rem 1.15rem;
+  }
+
+  .camera-manual h2 {
+    font-size: 1.6rem;
+  }
+
+  .camera-manual__steps .camera-manual__icon {
+    width: 2rem;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .camera-column {
+    width: min(92vw, 1080px);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+}
+
+
+
+/* Final size overrides for the landing composition. */
+@media (min-width: 1181px) {
+  .camera {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .camera {
+    max-width: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+}
+
+
+
+/* Desktop proportions matched to the supplied reference: camera, manual, and Polaroid cluster. */
+@media (min-width: 1181px) {
+  .portfolio-stage {
+    width: min(98vw, 1420px);
+  }
+
+  .camera-column {
+    width: min(53vw, 980px);
+    transform: translateY(-3vh);
+  }
+
+  .camera {
+    max-width: 980px;
+  }
+
+  .portfolio-stage > .camera-manual {
+    right: clamp(0.75rem, 2.5vw, 2.75rem);
+    bottom: 23%;
+    width: 270px;
+    min-width: 0;
+  }
+}
+
+.portfolio-toolbar__skip {
+  padding: 0.68rem 1.2rem;
+  border: 2px solid rgb(93 61 34 / 45%);
+  border-radius: 999px;
+  background: rgb(255 250 240 / 78%);
+  color: #70442c;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.portfolio-toolbar__skip:hover,
+.portfolio-toolbar__skip:focus-visible {
+  background: #9f3d2e;
+  color: #fffaf0;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .portfolio-toolbar__skip {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.65rem;
+  }
+}
+
+
+
+/* Larger research paper and conference attachment tags. */
+.research-note__attachments span,
+.research-note__attachments a {
+  padding: 0.6rem 0.85rem;
+  border-width: 1.5px;
+  background: #f7ead2;
+  font-size: 0.74rem;
+  letter-spacing: 0.035em;
+}
+
+.portfolio-toolbar__identity {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.45rem, 1vw, 0.9rem);
+  min-width: 0;
+}
+
+.portfolio-toolbar__link {
+  color: #8b5e3c;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.portfolio-toolbar__link:hover,
+.portfolio-toolbar__link:focus-visible {
+  color: #9f3d2e;
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+}
+
+@media (max-width: 760px) {
+  .portfolio-toolbar__identity {
+    gap: 0.35rem;
+  }
+
+  .portfolio-toolbar__title {
+    max-width: 9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .portfolio-toolbar__link {
+    font-size: 0.68rem;
+  }
+}
+
+
+/* Emphasize the camera and shift the travel Polaroid farther right. */
+@media (min-width: 1181px) {
+  .camera-column {
+    width: min(60vw, 1100px);
+  }
+
+  .camera {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+}
+
+
+
+/* Let the memory Polaroids scale down smoothly, then remove them on phones. */
+
+
+@media (min-width: 901px) and (max-width: 1180px) {
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+}
+
+@media (max-width: 640px) {
+  .hero-memory-polaroid {
+    display: none;
+  }
+}
+
+/* Show the decorative Polaroid cluster only on a full desktop-width layout. */
+@media (max-width: 1180px) {
+  .hero-memory-polaroid {
+    display: none;
+  }
+}
+
+/* Scale the camera continuously with the available browser width. */
+@media (min-width: 1181px) {
+  .camera-column {
+    width: clamp(42rem, 58vw, 1100px);
+  }
+
+  .camera {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .camera-column {
+    width: clamp(38rem, 70vw, 780px);
+  }
+
+  .camera {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .camera-column {
+    width: min(92vw, 650px);
+  }
+
+  .camera {
+    width: 100%;
+  }
+}
+
+/* Phone-specific camera sizing: large enough to use, with safe side margins. */
+@media (max-width: 640px) {
+  .camera-hero {
+    padding-inline: 0.25rem;
+  }
+
+  .camera-column {
+    width: min(94vw, 32rem);
+    margin-inline: auto;
+    transform: none;
+  }
+
+  .camera {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Make the developing Polaroid usable on phones. */
+.developing-photo__image {
+  height: clamp(11rem, 24vw, 15rem);
+}
+
+@media (max-width: 640px) {
+  .developing-photo {
+    top: 72%;
+    width: min(78vw, 20rem);
+    padding: 0.55rem 0.55rem 0.85rem;
+  }
+
+  .developing-photo__image {
+    height: clamp(9rem, 50vw, 12rem);
+  }
+
+  .developing-photo strong {
+    font-size: 0.95rem;
+  }
+
+  .developing-photo > span:last-child {
+    font-size: 0.68rem;
+  }
+}
+
+/* Decorative Polaroid cluster: one desktop-only layout, no per-device variants. */
+.hero-memory-polaroid--bench {
+  z-index: 4;
+  top: 3%;
+  left: 1%;
+  width: 12.5rem;
+  transform: rotate(-8deg);
+}
+
+.hero-memory-polaroid--travel {
+  z-index: 3;
+  top: 21%;
+  left: clamp(9rem, 8vw, 9rem);
+  width: 13rem;
+  transform: rotate(6deg);
+}
+
+.hero-memory-polaroid--friends {
+  z-index: 5;
+  top: 44%;
+  left: clamp(-0.75rem, 2vw, 2.5rem);
+  width: 13rem;
+  transform: rotate(-2deg);
+}
+
+@media (max-width: 1180px) {
+  .hero-memory-polaroid {
+    display: none;
+  }
+}
+
+
+
+
+/* Make the physical shutter button the clear primary action. */
+.camera__capture {
+  width: 6.8%;
+  min-width: 34px;
+  filter: drop-shadow(0 0.35rem 0.45rem rgba(218, 89, 72, 0.35));
+}
+
+.camera__capture-dot {
+  width: 68%;
+  border: 3px solid #fff5da;
+  background: #d83a31;
+  box-shadow:
+    0 0 0 4px rgb(88 31 24 / 78%),
+    0 0 0 7px rgb(247 205 93 / 58%),
+    inset 0 0.14rem 0.2rem rgb(255 255 255 / 42%);
+}
+
+.camera__capture:hover .camera__capture-dot,
+.camera__capture:focus-visible .camera__capture-dot {
+  background: #f04b40;
+  box-shadow:
+    0 0 0 5px rgb(88 31 24 / 80%),
+    0 0 0 10px rgb(247 205 93 / 68%),
+    0 0 1.15rem rgb(216 58 49 / 78%);
+}
+
+@media (max-width: 640px) {
+  .camera__capture {
+    min-width: 34px;
+  }
+}
+
+
+/* Individual skill badges. */
+.skill-stamp__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.skill-stamp__items span {
+  min-width: 3.75rem;
+  min-height: 3.75rem;
+  display: inline-grid;
+  place-items: center;
+  padding: 0.55rem;
+  border: 1px solid rgb(93 61 34 / 25%);
+  border-radius: 50%;
+  background: #fffaf0;
+  color: #5b4030;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  box-shadow: 0 0.3rem 0.55rem rgb(84 50 25 / 9%);
+}
+
+@media (max-width: 640px) {
+  .skill-stamp__items span {
+    min-width: 3.35rem;
+    min-height: 3.35rem;
+    font-size: 0.53rem;
+  }
+}
 

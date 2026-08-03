@@ -10,7 +10,7 @@ import CornellBenchPhoto from './assets/memory-cornell-bench.jpg'
 import NewOrleansPhoto from './assets/memory-new-orleans.jpg'
 import FriendsPhoto from './assets/memory-friends.jpg'
 import { sections } from './data/sections'
-import { experiences, projects, skillGroups } from './data/portfolio'
+import { experiences, projects, research, skillGroups } from './data/portfolio'
 import './App.css'
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
 
   const currentSection =
     sections.find((section) => section.id === activeSection) ?? sections[0]
-  const navigationSections = sections.filter((section) => section.id !== 'home')
+  const navigationSections = sections.filter((section) => section.id !== 'home' && section.id !== 'research')
 
   function scrollToSection(sectionId) {
     setActiveSection(sectionId)
@@ -46,6 +46,13 @@ function App() {
 
   function handleTakePhoto() {
     setHasTakenPhoto(true)
+  }
+
+  function handleSkipToPortfolio() {
+    setIsPoweredOn(true)
+    setHasTakenPhoto(true)
+    setIsDeveloped(true)
+    setSelectedProject(null)
   }
 
   function handleDevelop() {
@@ -78,10 +85,23 @@ function App() {
   return (
     <main className="site-shell">
       <header className="portfolio-toolbar">
-        <a className="portfolio-toolbar__title" href="#camera-hero">
-          Shreyaa Sanjay . Software Portfolio
-        </a>
-        {isDeveloped && (
+        <div className="portfolio-toolbar__identity">
+          <a className="portfolio-toolbar__title" href="#camera-hero">
+            Shreyaa Sanjay . Software Portfolio
+          </a>
+          <a
+            className="portfolio-toolbar__link"
+            href="https://github.com/shreyaasanjay"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub ↗
+          </a>
+          <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">
+            Résumé ↗
+          </a>
+        </div>
+        {isDeveloped ? (
           <nav aria-label="Main navigation">
             {sections.map((section) => (
               <button
@@ -93,6 +113,14 @@ function App() {
               </button>
             ))}
           </nav>
+        ) : (
+          <button
+            className="portfolio-toolbar__skip"
+            type="button"
+            onClick={handleSkipToPortfolio}
+          >
+            Skip to portfolio →
+          </button>
         )}
       </header>
 
@@ -120,17 +148,14 @@ function App() {
           <figure className="hero-memory-polaroid hero-memory-polaroid--bench">
             <span />
             <img src={CornellBenchPhoto} alt="" />
-            <figcaption>New York, USA </figcaption>
           </figure>
           <figure className="hero-memory-polaroid hero-memory-polaroid--travel">
             <span />
             <img src={NewOrleansPhoto} alt="" />
-            <figcaption>New Orleans, USA </figcaption>
           </figure>
           <figure className="hero-memory-polaroid hero-memory-polaroid--friends">
             <span />
             <img src={FriendsPhoto} alt="" />
-            <figcaption>New York, USA </figcaption>
           </figure>
           <span className="hero-decal hero-decal--ink-speckles" />
           <span className="hero-decal hero-decal--tape-left" />
@@ -181,6 +206,7 @@ function App() {
         <Scrapbook
           experiences={experiences}
           projects={projects}
+          research={research}
           skillGroups={skillGroups}
           onProjectOpen={setSelectedProject}
         />
@@ -197,6 +223,11 @@ function App() {
 }
 
 export default App
+
+
+
+
+
 
 
 
