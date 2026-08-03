@@ -35,17 +35,23 @@ function ProjectModal({ project, onClose }) {
         <p className="project-modal__category">{project.category}</p>
         <p>{project.details}</p>
         <div className="project-modal__prompts">
-          <span>Problem</span>
-          <span>Process</span>
-          <span>Impact</span>
+          <section>
+            <h3>Problem</h3>
+            <p>{project.problem ?? 'Add the user or research problem this project solves.'}</p>
+          </section>
+          <section>
+            <h3>Process</h3>
+            <p>{project.process ?? 'Add the main design and implementation steps.'}</p>
+          </section>
+          <section>
+            <h3>Tools</h3>
+            <p>{project.tools ?? 'Add the languages, frameworks, and tools you used.'}</p>
+          </section>
         </div>
-        <p className="project-modal__note">
-          Replace this starter copy with screenshots, your technical decisions,
-          and the result of the project.
-        </p>
       </article>
     </div>
   )
 }
 
 export default ProjectModal
+

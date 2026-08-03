@@ -73,17 +73,8 @@ function App() {
 
     return () => window.clearTimeout(scrollTimer)
   }, [isDeveloped])
-
-  useEffect(() => {
-    document.body.style.overflowY = hasTakenPhoto ? '' : 'hidden'
-
-    return () => {
-      document.body.style.overflowY = ''
-    }
-  }, [hasTakenPhoto])
-
   return (
-    <main className="site-shell">
+    <main className={`site-shell${hasTakenPhoto ? '' : ' site-shell--camera-locked'}`}>
       <header className="portfolio-toolbar">
         <div className="portfolio-toolbar__identity">
           <a className="portfolio-toolbar__title" href="#camera-hero">
@@ -98,10 +89,10 @@ function App() {
             GitHub ↗
           </a>
           <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">
-            Résumé ↗
+            Resume ↗
           </a>
         </div>
-        {isDeveloped ? (
+        {isDeveloped && (
           <nav aria-label="Main navigation">
             {sections.map((section) => (
               <button
@@ -113,14 +104,6 @@ function App() {
               </button>
             ))}
           </nav>
-        ) : (
-          <button
-            className="portfolio-toolbar__skip"
-            type="button"
-            onClick={handleSkipToPortfolio}
-          >
-            Skip to portfolio →
-          </button>
         )}
       </header>
 
@@ -171,6 +154,15 @@ function App() {
         </div>
 
         <div className="portfolio-stage">
+          {!isDeveloped && (
+            <button
+              className="portfolio-skip"
+              type="button"
+              onClick={handleSkipToPortfolio}
+            >
+              Skip to portfolio →
+            </button>
+          )}
           <div className="camera-column">
             <CameraShell
               sections={navigationSections}
@@ -223,6 +215,11 @@ function App() {
 }
 
 export default App
+
+
+
+
+
 
 
 

@@ -34,15 +34,23 @@ export const projects = [
     title: 'CerviCheck Device',
     category: 'Software + AI',
     description: 'Software for GUI and STM32 Pressure Board',
-    details: 'device designed to predict pre-term birth using cervix deformation',
+    details: 'A device designed to help predict pre-term birth using cervix deformation.',
+    problem: 'Create clinician-friendly software that can interpret pressure-sensor data from the CerviCheck device in real time.',
+    process: `• Built the GUI for clinicians.
+• Connected the STM32 pressure board.
+• Implemented live pressure plotting.
+• Packaged the application for clinician use.`,
+    tools: 'Python · STM32 · Pressure sensors · GUI development',
     accent: 'ochre',
   },
   {
     id: 'FileSwipe',
     title: 'FileSwipe',
     category: 'Full Stack Application',
-    description: 'Currently building...',
-    details: 'xxxxxxxxx',
+    description: 'Privacy preserving AI Storage Assistant',
+    details: 'local agent that keeps/deletes your files based on a left/right swipes',
+    problem: 'Constantly running out of storage and most storage organizers have usage limits'
+    process: 'Building '
     accent: 'sage',
   },
   {
@@ -50,7 +58,10 @@ export const projects = [
     title: 'Bonassar Lab GUI',
     category: 'Research Tools',
     description: 'A graphical interface designed to measure live stepper motor rate based on cell density of bioink',
-    details: 'Explain who used the interface, what workflow it improved, and which features you implemented.',
+    details: 'Built a live tracker of the PID controlled system measuring impedance (cell concentration) and extrusion rate of the bioprinter',
+    problem: 'There was no clear way of tracking if the PID controller was changing the motor speed to the degree that it should be and tracking/gaining the data',
+    process: 'First, we connected the PI to the stepper motor and impedance sensor and created scripts to start both from the GUI, then designed the GUI for connection of device and live plotting of the data. Also added a CSV download feature for further analysis.',
+    tools: 'Rasberry PI, C++, Python, pandas, matplotlib',
     accent: 'blue',
   },
   {
@@ -59,6 +70,9 @@ export const projects = [
     category: 'Agentic Stack',
     description: 'Full stack user interface for real time querying of a 4-camera smart space',
     details: 'Describe the research question, the tools you used, and the most interesting result.',
+    problem: 'LLM agent workflows can be variable and produce incorrect resuls with no way of determining the exact cause of error',
+    process: 'Applied and tuned TraceFIX,a protocol thtat uses TLA+/TLC to verify the agent protcol and ensures that there are no conflicts or deadlocks in the topology.',
+    tools: 'LLM API Keys (OPEN ROUTER), Python, JavaScript',
     accent: 'red',
   },
   {
@@ -66,7 +80,10 @@ export const projects = [
     title: 'Software Portfolio',
     category: 'personal website',
     description: 'Interactive personal portfolio website',
-    details: 'Add the problem, your approach, the tools you used, and a link to the project.',
+    details: 'Design interactive camera component and consistently maintain',
+    problem: 'Needed a singular place to display my expereince, projects and research', 
+    process: `First sketched out a basic design and generated a PRD, then started building with camera segment, then portfolio section, and then the interaction to connect the two`,
+    tools: 'React, Vite, HTML, CSS',
     accent: 'sage',
   },]
 
@@ -108,6 +125,7 @@ export const skillGroups = [
   { label: 'Frameworks', items: ['ROS2','FastAPI', 'React', 'Vite', 'Express.js', 'PyTorch'] },
   { label: 'Tools', items: ['Git', 'GitHub', 'Docker', 'Tailscale', 'Starlink', 'SolidWorks'] },
 ]
+
 
 
 

@@ -1026,9 +1026,15 @@ a {
   margin: 2rem 0;
 }
 
-.project-modal__prompts span {
-  padding: 1rem 0.5rem;
+.project-modal__prompts section {
+  min-width: 0;
+  padding: 1rem 0.75rem;
   border: 1px dashed #ae755a;
+  background: rgb(255 250 240 / 72%);
+}
+
+.project-modal__prompts h3 {
+  margin: 0 0 0.6rem;
   color: #8d4838;
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -1036,10 +1042,12 @@ a {
   text-transform: uppercase;
 }
 
-.project-modal__note {
-  padding: 1rem;
-  background: #f2e4ca;
-  font-size: 0.8rem;
+.project-modal__prompts p {
+  margin: 0;
+  color: #5f5144;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: pre-line;
 }
 
 @keyframes capture-hint {
@@ -3099,3 +3107,90 @@ html {
   }
 }
 
+
+
+/* Clearer camera-off instruction. */
+.camera__off-screen span {
+  padding: 0.5em 0.75em;
+  border: 1px solid rgb(247 205 93 / 62%);
+  border-radius: 0.3rem;
+  background: rgb(247 205 93 / 10%);
+  color: #fff1bd;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-shadow: 0 0 0.75rem rgb(247 205 93 / 42%);
+}
+
+/* Larger, easier-to-find ON/OFF control. */
+.camera__power {
+  width: 5.6%;
+  min-width: 38px;
+  font-size: clamp(0.52rem, 1.05vw, 0.88rem);
+}
+
+@media (max-width: 640px) {
+  .camera__power {
+    min-width: 29px;
+  }
+}
+
+/* Prominent recruiter shortcut above the desktop camera manual. */
+.portfolio-skip {
+  position: absolute;
+  z-index: 10;
+  top: 6%;
+  right: clamp(0.75rem, 2.5vw, 2.75rem);
+  width: 270px;
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.15rem;
+  border: 2px solid #8d4838;
+  border-radius: 0.35rem;
+  background: #fff8e8;
+  box-shadow: 0 0.75rem 1.35rem rgb(84 50 25 / 18%);
+  color: #633324;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: rotate(-1deg);
+}
+
+.portfolio-skip span {
+  color: #a64738;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+.portfolio-skip:hover,
+.portfolio-skip:focus-visible {
+  background: #9f3d2e;
+  color: #fffaf0;
+  outline: 3px solid #f2c94c;
+  outline-offset: 3px;
+}
+
+.portfolio-skip:hover span,
+.portfolio-skip:focus-visible span {
+  color: #fff1bd;
+}
+
+@media (max-width: 1180px) {
+  .portfolio-skip {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(90vw, 26rem);
+    margin: 0 auto 1.25rem;
+    transform: none;
+  }
+}
+
+/* Lock the opening screen without leaving a body-level lock behind on page return. */
+.site-shell--camera-locked {
+  height: 100svh;
+  overflow: hidden;
+}
