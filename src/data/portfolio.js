@@ -49,8 +49,8 @@ export const projects = [
     category: 'Full Stack Application',
     description: 'Privacy preserving AI Storage Assistant',
     details: 'local agent that keeps/deletes your files based on a left/right swipes',
-    problem: 'Constantly running out of storage and most storage organizers have usage limits'
-    process: 'Building '
+    problem: 'Constantly running out of storage and most storage organizers have usage limits',
+    process: 'Building ',
     accent: 'sage',
   },
   {
