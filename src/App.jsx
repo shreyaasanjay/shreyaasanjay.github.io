@@ -63,9 +63,9 @@ function App() {
         <div className="portfolio-stage">
           <div className="portfolio-hero-copy">
             <h1>Hi, I’m Shreyaa!</h1>
-            <p>I’m a current student at Cornell University studying Computer Science and ECE, interested in building physical AI and intelligent systems to enhance daily life!</p>
+            <p>I’m a current student at <strong>Cornell University</strong> studying <strong>Computer Science and ECE</strong>, interested in building physical AI and intelligent systems to enhance daily life!</p>
             <div className="portfolio-hero-copy__actions">
-              <button type="button" onClick={() => scrollToSection('projects')}>View projects</button>
+              <button type="button" onClick={() => scrollToSection('projects')}>Scroll down to view projects</button>
             </div>
           </div>
 
