@@ -1,24 +1,26 @@
-﻿function Viewfinder({ section }) {
+function Viewfinder({ photos, selectedPhoto, onPhotoSelect, capturedPhoto }) {
   return (
     <div className="viewfinder" aria-live="polite">
-      <div className="viewfinder__status">
-        <span>● REC</span>
-        <span>Portfolio / {section.label}</span>
-      </div>
-
+      <div className="viewfinder__status"><span>● REC</span><span>{capturedPhoto ? 'Scroll the photo strip to switch photos' : 'Pick a photo → press the red shutter'}</span></div>
       <div className="viewfinder__content">
-        <p className="eyebrow"></p>
-        <h1>Hi, I’m Shreyaa!</h1>
-        <p>Computer Science + ECE at Cornell University</p>
-        {/* <p className="viewfinder__cta viewfinder__cta--instruction">
-          {hasTakenPhoto ? 'Picture captured ✓' : 'Press ↓ to take picture'}
-        </p> */}
+        <img className="viewfinder__photo" src={selectedPhoto.src} alt={selectedPhoto.alt} />
+        <div className="viewfinder__filmstrip" aria-label="Choose a photo to print">
+          {photos.map((photo) => (
+            <button
+              key={photo.id}
+              type="button"
+              onClick={() => onPhotoSelect(photo)}
+              data-selected={selectedPhoto.id === photo.id}
+              aria-label={`Select ${photo.label} photo`}
+            >
+              <img src={photo.src} alt="" />
+              <span>{photo.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
 export default Viewfinder
-
-
-

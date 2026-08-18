@@ -1,10 +1,8 @@
-﻿import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CameraShell from './components/CameraShell'
-import CameraManual from './components/CameraManual'
 import Scrapbook from './components/Scrapbook'
 import ProjectModal from './components/ProjectModal'
 import BotanicalFlower from './assets/botanical-flower.png'
-import CornellTower from './assets/cornell-tower-decal.png'
 import ShutterPhoto from './assets/shutter-lake.jpg'
 import CornellBenchPhoto from './assets/memory-cornell-bench.jpg'
 import NewOrleansPhoto from './assets/memory-new-orleans.jpg'
@@ -13,235 +11,81 @@ import { sections } from './data/sections'
 import { experiences, projects, research, skillGroups } from './data/portfolio'
 import './App.css'
 
+const cameraPhotos = [
+  { id: 'lake', src: ShutterPhoto, alt: 'Lake and waterfall surrounded by trees', label: 'Lake' },
+  { id: 'campus', src: CornellBenchPhoto, alt: 'Shreyaa near a Cornell campus building', label: 'Cornell' },
+  { id: 'travel', src: NewOrleansPhoto, alt: 'Shreyaa in New Orleans', label: 'Travel' },
+  { id: 'friends', src: FriendsPhoto, alt: 'Shreyaa with friends', label: 'Friends' },
+]
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
-  const [isPoweredOn, setIsPoweredOn] = useState(false)
-  const [hasTakenPhoto, setHasTakenPhoto] = useState(false)
-  const [isDeveloped, setIsDeveloped] = useState(false)
+  const [selectedPhoto, setSelectedPhoto] = useState(cameraPhotos[0])
+  const [capturedPhoto, setCapturedPhoto] = useState(null)
   const [selectedProject, setSelectedProject] = useState(null)
-
-  const currentSection =
-    sections.find((section) => section.id === activeSection) ?? sections[0]
-  const navigationSections = sections.filter((section) => section.id !== 'home' && section.id !== 'research')
 
   function scrollToSection(sectionId) {
     setActiveSection(sectionId)
-
-    if (isDeveloped) {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  function handlePowerChange(nextPowerState) {
-    setIsPoweredOn(nextPowerState)
-    setActiveSection('home')
-
-    if (!nextPowerState) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-      setHasTakenPhoto(false)
-      setIsDeveloped(false)
-      setSelectedProject(null)
-    }
+  function handleTakePhoto(photo) {
+    setCapturedPhoto(photo)
   }
 
-  function handleTakePhoto() {
-    setHasTakenPhoto(true)
-  }
-
-  function handleSkipToPortfolio() {
-    setIsPoweredOn(true)
-    setHasTakenPhoto(true)
-    setIsDeveloped(true)
-    setSelectedProject(null)
-  }
-
-  function handleDevelop() {
-    if (!hasTakenPhoto) return
-
-    setActiveSection('home')
-    setIsDeveloped(true)
-  }
-
-  useEffect(() => {
-    if (!isDeveloped) {
-      return undefined
-    }
-
-    const scrollTimer = window.setTimeout(() => {
-      document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
-    }, 850)
-
-    return () => window.clearTimeout(scrollTimer)
-  }, [isDeveloped])
   return (
-    <main className={`site-shell${hasTakenPhoto ? '' : ' site-shell--camera-locked'}`}>
+    <main className="site-shell">
       <header className="portfolio-toolbar">
         <div className="portfolio-toolbar__identity">
-          <a className="portfolio-toolbar__title" href="#camera-hero">
-            Shreyaa Sanjay . Software Portfolio
-          </a>
-          <a
-            className="portfolio-toolbar__link"
-            href="https://github.com/shreyaasanjay"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub ↗
-          </a>
-          <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">
-            Resume ↗
-          </a>
+          <a className="portfolio-toolbar__title" href="#camera-hero">Shreyaa Sanjay . Software Portfolio</a>
+          <a className="portfolio-toolbar__link" href="https://github.com/shreyaasanjay" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
         </div>
-        {isDeveloped && (
-          <nav aria-label="Main navigation">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                type="button"
-                onClick={() => scrollToSection(section.id)}
-              >
-                {section.label}
-              </button>
-            ))}
-          </nav>
-        )}
+        <nav aria-label="Main navigation">
+          {sections.map((section) => (
+            <button key={section.id} type="button" onClick={() => scrollToSection(section.id)} data-active={activeSection === section.id}>
+              {section.label}
+            </button>
+          ))}
+        </nav>
       </header>
 
-      <img
-        className="botanical-background"
-        src={BotanicalFlower}
-        alt=""
-        aria-hidden="true"
-      />
-      <img
-        className="botanical-background botanical-background--top"
-        src={BotanicalFlower}
-        alt=""
-        aria-hidden="true"
-      />
-      <img
-        className="tower-background"
-        src={CornellTower}
-        alt=""
-        aria-hidden="true"
-      />
+      <img className="botanical-background" src={BotanicalFlower} alt="" aria-hidden="true" />
+      <img className="botanical-background botanical-background--top" src={BotanicalFlower} alt="" aria-hidden="true" />
 
       <section className="camera-hero" id="camera-hero">
-        <div className="hero-decals" aria-hidden="true">
-          <figure className="hero-memory-polaroid hero-memory-polaroid--bench">
-            <span />
-            <img src={CornellBenchPhoto} alt="" />
-          </figure>
-          <figure className="hero-memory-polaroid hero-memory-polaroid--travel">
-            <span />
-            <img src={NewOrleansPhoto} alt="" />
-          </figure>
-          <figure className="hero-memory-polaroid hero-memory-polaroid--friends">
-            <span />
-            <img src={FriendsPhoto} alt="" />
-          </figure>
-          <span className="hero-decal hero-decal--ink-speckles" />
-          <span className="hero-decal hero-decal--tape-left" />
-          <div className="hero-decal hero-decal--cornell">
-            <span>Cornell</span>
-            <b>C</b>
-            <small>Ithaca · 1865</small>
-          </div>
-          <span className="hero-decal hero-decal--sparkle-one">✦</span>
-          <span className="hero-decal hero-decal--sparkle-two">✧</span>
-          <span className="hero-decal hero-decal--sparkle-three">✦</span>
-          <span className="hero-decal hero-decal--dashes">· · · · ·</span>
-        </div>
-
         <div className="portfolio-stage">
-          {!isDeveloped && (
-            <button
-              className="portfolio-skip"
-              type="button"
-              onClick={handleSkipToPortfolio}
-            >
-              Skip to portfolio →
-            </button>
-          )}
+          <div className="portfolio-hero-copy">
+            <h1>Hi, I’m Shreyaa!</h1>
+            <p>I’m a current student at Cornell University studying Computer Science and ECE, interested in building physical AI and intelligent systems to enhance daily life!</p>
+            <div className="portfolio-hero-copy__actions">
+              <button type="button" onClick={() => scrollToSection('projects')}>View projects</button>
+            </div>
+          </div>
+
           <div className="camera-column">
             <CameraShell
-              sections={navigationSections}
-              currentSection={currentSection}
-              isPoweredOn={isPoweredOn}
-              hasTakenPhoto={hasTakenPhoto}
-              onPowerChange={handlePowerChange}
-              onSectionChange={scrollToSection}
+              photos={cameraPhotos}
+              selectedPhoto={selectedPhoto}
+              capturedPhoto={capturedPhoto}
+              onPhotoSelect={setSelectedPhoto}
               onTakePhoto={handleTakePhoto}
             />
-
-            <button
-              className={`developing-photo${hasTakenPhoto ? ' developing-photo--visible' : ''}`}
-              type="button"
-              onClick={handleDevelop}
-              disabled={!hasTakenPhoto || isDeveloped}
-              aria-label="Develop and open portfolio"
-              aria-hidden={!hasTakenPhoto}
-            >
+            <div className={`developing-photo${capturedPhoto ? ' developing-photo--visible' : ''}`} aria-live="polite">
               <span className="developing-photo__image">
-                <img src={ShutterPhoto} alt="Lake and waterfall surrounded by trees" />
+                {capturedPhoto && <img src={capturedPhoto.src} alt={capturedPhoto.alt} />}
               </span>
               <strong>Photo Captured</strong>
-              <span>{isDeveloped ? 'Developed ✓' : 'Click to develop ↓'}</span>
-            </button>
+              <span>Printed from my camera</span>
+            </div>
           </div>
-
-          <CameraManual />
         </div>
       </section>
 
-      {isPoweredOn && isDeveloped && (
-        <Scrapbook
-          experiences={experiences}
-          projects={projects}
-          research={research}
-          skillGroups={skillGroups}
-          onProjectOpen={setSelectedProject}
-        />
-      )}
-
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
+      <Scrapbook experiences={experiences} projects={projects} research={research} skillGroups={skillGroups} onProjectOpen={setSelectedProject} />
+      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </main>
   )
 }
 
 export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

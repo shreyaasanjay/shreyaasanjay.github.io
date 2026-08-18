@@ -1,97 +1,43 @@
-﻿import CameraControls from './CameraControls'
+import { useEffect, useState } from 'react'
 import CameraImage from '../assets/camera-illustrated.png'
 import Viewfinder from './Viewfinder'
-import { useEffect, useState } from 'react'
 
-function CameraShell({
-  sections,
-  currentSection,
-  isPoweredOn,
-  hasTakenPhoto,
-  onPowerChange,
-  onSectionChange,
-  onTakePhoto,
-}) {
+function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTakePhoto }) {
   const [isShutterActive, setIsShutterActive] = useState(false)
 
   useEffect(() => {
     if (!isShutterActive) return undefined
-
     const timer = window.setTimeout(() => setIsShutterActive(false), 700)
     return () => window.clearTimeout(timer)
   }, [isShutterActive])
 
-  function handlePowerClick() {
-    onPowerChange(!isPoweredOn)
-  }
-
   function handleTakePhoto() {
-    if (hasTakenPhoto) return
-
     setIsShutterActive(true)
-    onTakePhoto()
+    onTakePhoto(selectedPhoto)
   }
 
   return (
-    <section className="camera" aria-label="Shreyaaâ€™s portfolio camera">
-      <img
-        className="camera__image"
-        src={CameraImage}
-        alt=""
-        aria-hidden="true"
-      />
-
+    <section className="camera" aria-label="Shreyaa's portfolio camera">
+      <img className="camera__image" src={CameraImage} alt="" aria-hidden="true" />
       <button
-        className="camera__power"
+        className="camera__capture"
         type="button"
-        onClick={handlePowerClick}
-        aria-label={isPoweredOn ? 'Turn camera off' : 'Turn camera on'}
-        aria-pressed={isPoweredOn}
+        onClick={handleTakePhoto}
+        aria-label={`Print ${selectedPhoto.label} photo`}
       >
-        {isPoweredOn ? 'OFF' : 'ON'}
+        <span className="camera__capture-dot" aria-hidden="true" />
       </button>
-
-      {isPoweredOn && (
-        <button
-          className="camera__capture"
-          type="button"
-          onClick={handleTakePhoto}
-          disabled={hasTakenPhoto}
-          aria-label={hasTakenPhoto ? 'Picture captured' : 'Take picture'}
-        >
-          <span className="camera__capture-dot" aria-hidden="true" />
-        </button>
-      )}
-
       <div className="camera__screen">
-        {isPoweredOn ? (
-          <Viewfinder section={currentSection} />
-        ) : (
-          <div className="camera__off-screen" aria-label="Camera is off">
-            <span>Press ON to begin</span>
-          </div>
-        )}
-
-        {isShutterActive && (
-          <div className="camera__shutter" aria-hidden="true">
-            <span />
-          </div>
-        )}
-      </div>
-
-      {isPoweredOn && (
-        <CameraControls
-          sections={sections}
-          activeSection={currentSection.id}
-          onSectionChange={onSectionChange}
+        <Viewfinder
+          photos={photos}
+          selectedPhoto={selectedPhoto}
+          onPhotoSelect={onPhotoSelect}
+          capturedPhoto={capturedPhoto}
         />
-      )}
+      </div>
+      {isShutterActive && <div className="camera__shutter" aria-hidden="true"><span /></div>}
     </section>
   )
 }
 
 export default CameraShell
-
-
-
-
