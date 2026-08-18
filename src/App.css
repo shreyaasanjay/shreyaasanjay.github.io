@@ -1,4 +1,4 @@
-html {
+﻿html {
   scroll-behavior: smooth;
   scroll-padding-top: 3.5rem;
 }
@@ -3796,4 +3796,96 @@ html {
   .portfolio-toolbar__identity {
     gap: 0.25rem;
   }
+}
+
+/* Make the botanical decals more visible against the paper background. */
+.botanical-background {
+  opacity: 0.13;
+}
+
+.botanical-background--top {
+  opacity: 0.1;
+}
+
+.viewfinder__status strong {
+  font-weight: 900;
+  -webkit-text-stroke: 0.25px currentColor;
+  text-shadow: 0 0 0.2px currentColor;
+}
+
+/* Scale the toolbar down smoothly before the mobile-dot navigation takes over. */
+@media (max-width: 1100px) {
+  .site-shell {
+    padding-top: 3rem;
+  }
+
+  .portfolio-toolbar {
+    min-height: 3rem;
+    padding-inline: 1rem;
+  }
+
+  .portfolio-toolbar__title,
+  .portfolio-toolbar__link,
+  .portfolio-toolbar__separator {
+    font-size: 0.78rem;
+  }
+
+  .portfolio-toolbar__identity {
+    gap: 0.32rem;
+  }
+
+  .portfolio-toolbar nav {
+    gap: 0.55rem;
+  }
+
+  .portfolio-toolbar nav button {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .site-shell {
+    padding-top: 2.7rem;
+  }
+
+  .portfolio-toolbar {
+    min-height: 2.7rem;
+    padding-inline: 0.7rem;
+  }
+
+  .portfolio-toolbar__title {
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .portfolio-toolbar__title,
+  .portfolio-toolbar__link,
+  .portfolio-toolbar__separator {
+    font-size: 0.68rem;
+  }
+
+  .portfolio-toolbar nav {
+    gap: 0.35rem;
+  }
+
+  .portfolio-toolbar nav button {
+    font-size: 0.62rem;
+  }
+}
+
+/* Quietly explain that the camera interaction is optional. */
+.portfolio-hero-copy__camera-note {
+  margin: 1rem 0 0;
+  color: #8a6c58;
+  font-family: var(--mono);
+  font-size: clamp(0.65rem, 0.9vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.portfolio-hero-copy__camera-note {
+  margin-top: 0.65rem;
+  font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+  font-weight: 700;
 }
