@@ -40,8 +40,12 @@ function App() {
       <header className="portfolio-toolbar">
         <div className="portfolio-toolbar__identity">
           <a className="portfolio-toolbar__title" href="#camera-hero">Shreyaa Sanjay . Software Portfolio</a>
+          <span className="portfolio-toolbar__separator" aria-hidden="true">.</span>
           <a className="portfolio-toolbar__link" href="https://github.com/shreyaasanjay" target="_blank" rel="noreferrer">GitHub</a>
+          <span className="portfolio-toolbar__separator" aria-hidden="true">.</span>
           <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <span className="portfolio-toolbar__separator" aria-hidden="true">.</span>
+          <a className="portfolio-toolbar__link" href="https://www.linkedin.com/in/shreyaa-sanjay-3166b2275/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
         <nav aria-label="Main navigation">
           {sections.map((section) => (

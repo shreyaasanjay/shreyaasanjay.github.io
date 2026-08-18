@@ -1,7 +1,7 @@
 function Viewfinder({ photos, selectedPhoto, onPhotoSelect, capturedPhoto }) {
   return (
     <div className="viewfinder" aria-live="polite">
-      <div className="viewfinder__status"><span>● REC</span><span>{capturedPhoto ? 'Scroll the photo strip to switch photos' : 'Pick a photo → press the red shutter'}</span></div>
+      <div className="viewfinder__status"><span>● REC</span><strong>{capturedPhoto ? 'Scroll the photo strip to switch photos' : 'Pick a photo → press the red shutter'}</strong></div>
       <div className="viewfinder__content">
         <img className="viewfinder__photo" src={selectedPhoto.src} alt={selectedPhoto.alt} />
         <div className="viewfinder__filmstrip" aria-label="Choose a photo to print">

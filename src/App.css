@@ -3676,3 +3676,124 @@ html {
     font-size: 0.75rem;
   }
 }
+
+.viewfinder__status strong {
+  color: #7c3025;
+  font-family: var(--mono);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+/* Present the title, GitHub, and Resume as one matching text sequence. */
+.portfolio-toolbar__identity {
+  gap: 0;
+}
+
+.portfolio-toolbar__title + .portfolio-toolbar__link {
+  margin-left: 0;
+}
+
+.portfolio-toolbar__link {
+  color: #614125;
+  font-size: clamp(0.98rem, 1vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.portfolio-toolbar__link::before {
+  content: ' . ';
+}
+
+.portfolio-toolbar__link:hover,
+.portfolio-toolbar__link:focus-visible {
+  color: #9f3d2e;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .portfolio-toolbar__link {
+    font-size: 0.68rem;
+  }
+}
+
+.portfolio-toolbar__title {
+  color: #2d2925;
+}
+
+.portfolio-toolbar__link {
+  color: #8b5e3c;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.24rem;
+}
+
+.portfolio-toolbar__link::before {
+  text-decoration: none;
+}
+
+.portfolio-toolbar__link:hover,
+.portfolio-toolbar__link:focus-visible {
+  color: #9f3d2e;
+  text-decoration: underline;
+}
+
+/* Separate period characters keep each resource-link underline independent. */
+.portfolio-toolbar__link::before {
+  content: none;
+}
+
+.portfolio-toolbar__separator {
+  margin-inline: 0.45rem;
+  color: #614125;
+  font-family: var(--mono);
+  font-size: clamp(0.98rem, 1vw, 0.82rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .portfolio-toolbar__separator {
+    margin-inline: 0.25rem;
+    font-size: 0.68rem;
+  }
+}
+
+/* Restore the earlier, spacious title-and-links toolbar arrangement. */
+.portfolio-toolbar__identity {
+  gap: clamp(0.45rem, 1vw, 0.9rem);
+}
+
+.portfolio-toolbar__title + .portfolio-toolbar__link {
+  margin-left: clamp(0.7rem, 2vw, 2rem);
+}
+
+.portfolio-toolbar__link::before {
+  content: none;
+}
+
+@media (max-width: 760px) {
+  .portfolio-toolbar__identity {
+    gap: 0.35rem;
+  }
+
+  .portfolio-toolbar__title + .portfolio-toolbar__link {
+    margin-left: 0.35rem;
+  }
+}
+
+/* Use one consistent gap between every title/link item and its period separator. */
+.portfolio-toolbar__identity {
+  gap: 0.42rem;
+}
+
+.portfolio-toolbar__separator {
+  margin-inline: 0;
+}
+
+@media (max-width: 760px) {
+  .portfolio-toolbar__identity {
+    gap: 0.25rem;
+  }
+}
