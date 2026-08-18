@@ -3560,3 +3560,119 @@ html {
   padding: 0.9rem 1.35rem;
   font-size: 0.82rem;
 }
+
+/* Every shutter press prints and develops a fresh Polaroid. */
+.developing-photo--visible {
+  animation: polaroid-print 1.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: none;
+}
+
+.developing-photo--visible .developing-photo__image img {
+  animation: polaroid-image-develop 1.45s ease-out both;
+}
+
+.developing-photo--visible strong,
+.developing-photo--visible > span:last-child {
+  animation: polaroid-caption-reveal 1.45s ease-out both;
+}
+
+@keyframes polaroid-print {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translate(-50%, -58%) rotate(-1.5deg);
+  }
+
+  22% {
+    max-height: 58rem;
+    opacity: 1;
+    transform: translate(-50%, -4%) rotate(-1.5deg);
+  }
+
+  100% {
+    max-height: 58rem;
+    opacity: 1;
+    transform: translate(-50%, 14%) rotate(-2.5deg);
+  }
+}
+
+@keyframes polaroid-image-develop {
+  0%, 20% {
+    opacity: 0;
+    filter: grayscale(1) sepia(0.8) blur(18px);
+    transform: scale(1.08);
+  }
+
+  55% {
+    opacity: 0.72;
+    filter: grayscale(0.55) sepia(0.45) blur(5px);
+    transform: scale(1.03);
+  }
+
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: scale(1);
+  }
+}
+
+@keyframes polaroid-caption-reveal {
+  0%, 55% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .developing-photo--visible,
+  .developing-photo--visible .developing-photo__image img,
+  .developing-photo--visible strong,
+  .developing-photo--visible > span:last-child {
+    animation: none;
+  }
+}
+
+/* Larger, clearer navigation bar with separated resource links. */
+.site-shell {
+  padding-top: 3.4rem;
+}
+
+.portfolio-toolbar {
+  min-height: 3.4rem;
+  padding-inline: clamp(1rem, 2.5vw, 2rem);
+}
+
+.portfolio-toolbar__title + .portfolio-toolbar__link {
+  margin-left: clamp(0.7rem, 2vw, 2rem);
+}
+
+.portfolio-toolbar__link {
+  text-decoration: underline;
+  text-decoration-color: rgb(139 94 60 / 65%);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 640px) {
+  .site-shell {
+    padding-top: 2.75rem;
+  }
+
+  .portfolio-toolbar {
+    min-height: 2.75rem;
+  }
+
+  .portfolio-toolbar__title + .portfolio-toolbar__link {
+    margin-left: 0.35rem;
+  }
+}
+
+.portfolio-toolbar__link {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 760px) {
+  .portfolio-toolbar__link {
+    font-size: 0.75rem;
+  }
+}

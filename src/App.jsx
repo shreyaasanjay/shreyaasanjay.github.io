@@ -22,6 +22,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [selectedPhoto, setSelectedPhoto] = useState(cameraPhotos[0])
   const [capturedPhoto, setCapturedPhoto] = useState(null)
+  const [photoPrintVersion, setPhotoPrintVersion] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
 
   function scrollToSection(sectionId) {
@@ -31,6 +32,7 @@ function App() {
 
   function handleTakePhoto(photo) {
     setCapturedPhoto(photo)
+    setPhotoPrintVersion((version) => version + 1)
   }
 
   return (
@@ -38,8 +40,8 @@ function App() {
       <header className="portfolio-toolbar">
         <div className="portfolio-toolbar__identity">
           <a className="portfolio-toolbar__title" href="#camera-hero">Shreyaa Sanjay . Software Portfolio</a>
-          <a className="portfolio-toolbar__link" href="https://github.com/shreyaasanjay" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+          <a className="portfolio-toolbar__link" href="https://github.com/shreyaasanjay" target="_blank" rel="noreferrer">GitHub</a>
+          <a className="portfolio-toolbar__link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         </div>
         <nav aria-label="Main navigation">
           {sections.map((section) => (
@@ -71,12 +73,12 @@ function App() {
               onPhotoSelect={setSelectedPhoto}
               onTakePhoto={handleTakePhoto}
             />
-            <div className={`developing-photo${capturedPhoto ? ' developing-photo--visible' : ''}`} aria-live="polite">
+            <div key={photoPrintVersion} className={`developing-photo${capturedPhoto ? ' developing-photo--visible' : ''}`} aria-live="polite">
               <span className="developing-photo__image">
                 {capturedPhoto && <img src={capturedPhoto.src} alt={capturedPhoto.alt} />}
               </span>
               <strong>Photo Captured</strong>
-              <span>Printed from my camera</span>
+              <span>Take another anytime</span>
             </div>
           </div>
         </div>
