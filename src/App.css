@@ -3993,3 +3993,52 @@ html {
 .camera__interaction-sign {
   color: #a6785f;
 }
+
+/* Keep the camera hint subtle and make the recruiter path unmistakable. */
+.camera__interaction-sign {
+  font-size: clamp(0.66rem, 1vw, 0.88rem);
+  font-weight: 500;
+  opacity: 0.78;
+}
+
+.portfolio-hero-copy__actions button {
+  padding: 1.05rem 1.8rem;
+  font-size: 0.96rem;
+  letter-spacing: 0.07em;
+  box-shadow: 0 0.55rem 1.1rem rgb(126 50 39 / 18%);
+}
+
+.portfolio-hero-copy__actions button:hover,
+.portfolio-hero-copy__actions button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0.8rem 1.35rem rgb(126 50 39 / 25%);
+}
+
+@media (max-width: 640px) {
+  .camera__interaction-sign {
+    font-size: 0.56rem;
+  }
+
+  .portfolio-hero-copy__actions button {
+    padding: 0.85rem 1.1rem;
+    font-size: 0.76rem;
+  }
+}
+
+.camera__interaction-sign {
+  font-size: clamp(0.72rem, 1.08vw, 0.96rem);
+}
+
+.camera__interaction-arrow path {
+  stroke-width: 2.6;
+}
+
+@media (max-width: 640px) {
+  .camera__interaction-sign {
+    font-size: 0.61rem;
+  }
+
+  .camera__interaction-arrow path {
+    stroke-width: 3;
+  }
+}
