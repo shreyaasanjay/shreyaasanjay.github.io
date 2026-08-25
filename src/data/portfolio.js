@@ -44,13 +44,16 @@ export const projects = [
     accent: 'ochre',
   },
   {
-    id: 'FileSwipe',
-    title: 'FileSwipe',
-    category: 'Full Stack Application',
-    description: 'Privacy preserving AI Storage Assistant',
-    details: 'local agent that keeps/deletes your files based on a left/right swipes',
-    problem: 'Constantly running out of storage and most storage organizers have usage limits',
-    process: 'Building ',
+    id: 'ego-memory-ego-exo4d',
+    title: 'EgoMemory for Ego-Exo4D',
+    category: 'Multimodal AI',
+    description: 'Episodic-memory retrieval for egocentric video',
+    details: 'A multimodal episodic-memory retrieval system for egocentric video that pairs CLIP visual embeddings with aligned transcripts, temporal context, and motion features.',
+    problem: 'Enable people to quickly retrieve a specific moment from long first-person videos using more than visual similarity alone.',
+    process: `• Built a FAISS retrieval pipeline across CLIP visual embeddings, transcripts, temporal context, and trajectory/motion features.
+• Evaluated 50 manually validated Ego-Exo4D queries; full multimodal retrieval reached 84% Recall@5, compared with 30% for vision-only and 18% for motion-only retrieval.
+• Developed a native desktop interface showing ranked memory windows, modality evidence, synchronized captions, and retrieved video segments.`,
+    tools: 'Python · CLIP · FAISS · Tkinter · Ego-Exo4D',
     accent: 'sage',
   },
   {

@@ -18,6 +18,15 @@ function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTa
 
   return (
     <section className="camera" aria-label="Shreyaa's portfolio camera">
+      <p className="camera__interaction-sign">
+        Play around<br />with the camera!
+        <span className="camera__interaction-arrow" aria-hidden="true">
+          <svg viewBox="0 0 260 150" fill="none">
+            <path d="M248 14C161 -5 115 25 91 73C72 110 54 119 26 130" />
+            <path d="M47 108L26 130L57 136" />
+          </svg>
+        </span>
+      </p>
       <img className="camera__image" src={CameraImage} alt="" aria-hidden="true" />
       <button
         className="camera__capture"

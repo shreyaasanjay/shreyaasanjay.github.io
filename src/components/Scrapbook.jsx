@@ -1,5 +1,8 @@
 ﻿import ProfileHeadshot from '../assets/profile-headshot.jpg'
 
+import BonassarLabPlot from '../assets/bonassar-lab-plot.png'
+import SoftwarePortfolioPreview from '../assets/software-portfolio-preview.png'
+
 function Scrapbook({ experiences, projects, research, skillGroups, onProjectOpen }) {
   return (
     <article className="scrapbook" aria-label="Shreyaa’s portfolio scrapbook">
@@ -56,7 +59,13 @@ function Scrapbook({ experiences, projects, research, skillGroups, onProjectOpen
                 onClick={() => onProjectOpen(project)}
               >
                 <span className="project-polaroid__image" aria-hidden="true">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  {project.id === 'bonassar-lab-gui' ? (
+                    <img src={BonassarLabPlot} alt="" />
+                  ) : project.id === 'software portfolio' ? (
+                    <img src={SoftwarePortfolioPreview} alt="" />
+                  ) : (
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                  )}
                 </span>
                 <span className="project-polaroid__category">{project.category}</span>
                 <strong>{project.title}</strong>

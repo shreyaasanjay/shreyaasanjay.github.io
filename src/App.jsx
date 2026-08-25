@@ -7,7 +7,6 @@ import ShutterPhoto from './assets/shutter-lake.jpg'
 import CornellBenchPhoto from './assets/memory-cornell-bench.jpg'
 import NewOrleansPhoto from './assets/memory-new-orleans.jpg'
 import FriendsPhoto from './assets/memory-friends.jpg'
-import { sections } from './data/sections'
 import { experiences, projects, research, skillGroups } from './data/portfolio'
 import './App.css'
 
@@ -19,14 +18,12 @@ const cameraPhotos = [
 ]
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home')
   const [selectedPhoto, setSelectedPhoto] = useState(cameraPhotos[0])
   const [capturedPhoto, setCapturedPhoto] = useState(null)
   const [photoPrintVersion, setPhotoPrintVersion] = useState(0)
   const [selectedProject, setSelectedProject] = useState(null)
 
   function scrollToSection(sectionId) {
-    setActiveSection(sectionId)
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -47,13 +44,6 @@ function App() {
           <span className="portfolio-toolbar__separator" aria-hidden="true">.</span>
           <a className="portfolio-toolbar__link" href="https://www.linkedin.com/in/shreyaa-sanjay-3166b2275/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
-        <nav aria-label="Main navigation">
-          {sections.map((section) => (
-            <button key={section.id} type="button" onClick={() => scrollToSection(section.id)} data-active={activeSection === section.id}>
-              {section.label}
-            </button>
-          ))}
-        </nav>
       </header>
 
       <img className="botanical-background" src={BotanicalFlower} alt="" aria-hidden="true" />
