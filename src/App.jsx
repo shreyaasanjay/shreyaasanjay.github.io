@@ -52,7 +52,10 @@ function App() {
       <section className="camera-hero" id="camera-hero">
         <div className="portfolio-stage">
           <div className="portfolio-hero-copy">
-            <h1>Hi, I’m Shreyaa!</h1>
+            <div className="portfolio-hero-copy__pinboard">
+              <span className="portfolio-hero-copy__pin" aria-hidden="true" />
+              <h1>Hi, I’m Shreyaa!</h1>
+            </div>
             <p>I’m a current student at <strong>Cornell University</strong> studying <strong>Computer Science and ECE</strong>, interested in building physical AI and intelligent systems to enhance daily life!</p>
             <div className="portfolio-hero-copy__actions">
               <button type="button" onClick={() => scrollToSection('projects')}>Scroll down to view projects</button>
@@ -67,7 +70,11 @@ function App() {
               onPhotoSelect={setSelectedPhoto}
               onTakePhoto={handleTakePhoto}
             />
-            <div key={photoPrintVersion} className={`developing-photo${capturedPhoto ? ' developing-photo--visible' : ''}`} aria-live="polite">
+            <div
+              key={photoPrintVersion}
+              className={`developing-photo${capturedPhoto ? ' developing-photo--visible' : ''}`}
+              aria-live="polite"
+            >
               <span className="developing-photo__image">
                 {capturedPhoto && <img src={capturedPhoto.src} alt={capturedPhoto.alt} />}
               </span>

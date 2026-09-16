@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import CameraImage from '../assets/camera-illustrated.png'
 import Viewfinder from './Viewfinder'
 
@@ -18,15 +18,17 @@ function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTa
 
   return (
     <section className="camera" aria-label="Shreyaa's portfolio camera">
-      <p className="camera__interaction-sign">
-        Play around<br />with the camera!
-        <span className="camera__interaction-arrow" aria-hidden="true">
-          <svg viewBox="0 0 260 150" fill="none">
-            <path d="M248 14C161 -5 115 25 91 73C72 110 54 119 26 130" />
-            <path d="M47 108L26 130L57 136" />
-          </svg>
-        </span>
-      </p>
+      <svg className="camera__curve-label" viewBox="0 0 500 200" aria-hidden="true">
+        <defs>
+          <path
+            id="camera-curve-label-path"
+            d="M12 42C98 18 183 28 244 68C275 88 292 108 302 128"
+          />
+        </defs>
+        <text>
+          <textPath href="#camera-curve-label-path" startOffset="0%">GET TO KNOW ME!</textPath>
+        </text>
+      </svg>
       <img className="camera__image" src={CameraImage} alt="" aria-hidden="true" />
       <button
         className="camera__capture"

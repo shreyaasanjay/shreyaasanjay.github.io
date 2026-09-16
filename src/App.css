@@ -62,7 +62,7 @@ a {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  cursor: pointer;
+  cursor: default;
 }
 
 .portfolio-toolbar nav button:hover,
@@ -450,17 +450,6 @@ a {
   max-height: 58rem;
   opacity: 1;
   transform: translate(-50%, 12%) rotate(-1.5deg);
-}
-
-.developing-photo--visible:not(:disabled):hover,
-.developing-photo--visible:not(:disabled):focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-  box-shadow: 0 1.5rem 2.4rem rgb(84 50 25 / 28%);
-}
-
-.developing-photo:disabled {
-  cursor: default;
 }
 
 .developing-photo:not(.developing-photo--visible) {
@@ -4041,4 +4030,207 @@ html {
   .camera__interaction-arrow path {
     stroke-width: 3;
   }
+}
+
+/* Opening greeting types in like a small terminal prompt. */
+.portfolio-hero-copy__typewriter {
+  font-size: clamp(1.8rem, 2.5vw, 2.65rem);
+}
+
+.portfolio-hero-copy__typewriter span {
+  display: block;
+  width: 0;
+  overflow: hidden;
+  border-right: 0.08em solid currentColor;
+  white-space: nowrap;
+  animation:
+    hero-greeting-type 650ms steps(7, end) 180ms forwards,
+    hero-greeting-caret 650ms step-end infinite;
+}
+
+.portfolio-hero-copy__typewriter span + span {
+  animation-delay: 900ms, 900ms;
+}
+
+.portfolio-hero-copy__typewriter span:first-child {
+  border-right: 0;
+}
+
+@keyframes hero-greeting-type {
+  to {
+    width: 7ch;
+  }
+}
+
+@keyframes hero-greeting-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-hero-copy__typewriter {
+    width: auto;
+    animation: none;
+  }
+
+  .portfolio-hero-copy__typewriter span {
+    width: auto;
+    border-right: 0;
+    animation: none;
+  }
+}
+
+/* Static bullet-journal pinboard behind the homepage greeting. */
+.portfolio-hero-copy__pinboard {
+  position: relative;
+  display: inline-block;
+  padding: clamp(1.25rem, 2.6vw, 2rem) clamp(1.4rem, 3vw, 2.6rem);
+  border: 1px solid rgb(107 75 46 / 30%);
+  background:
+    radial-gradient(circle, rgb(108 76 47 / 20%) 0.7px, transparent 0.8px) 0 0 / 9px 9px,
+    #fffaf0;
+  box-shadow: 0 1rem 2.2rem rgb(84 50 25 / 14%);
+  transform: rotate(-1deg);
+}
+
+.portfolio-hero-copy__pinboard::before,
+.portfolio-hero-copy__pinboard::after,
+.portfolio-hero-copy__pin {
+  position: absolute;
+  width: 0.68rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(82 41 29 / 35%);
+  border-radius: 50%;
+  background: #9f3d2e;
+  box-shadow: inset 0.1rem 0.1rem 0.12rem rgb(255 255 255 / 38%), 0 0.12rem 0.16rem rgb(66 38 25 / 28%);
+  content: '';
+}
+
+.portfolio-hero-copy__pinboard::before {
+  top: 0.5rem;
+  left: 0.55rem;
+}
+
+.portfolio-hero-copy__pinboard::after {
+  right: 0.55rem;
+  bottom: 0.5rem;
+}
+
+.portfolio-hero-copy__pin {
+  top: 0.5rem;
+  right: 0.55rem;
+}
+
+.portfolio-hero-copy__pinboard h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .portfolio-hero-copy__pinboard {
+    padding: 1rem 1.15rem;
+  }
+
+  .portfolio-hero-copy__pinboard::before,
+  .portfolio-hero-copy__pinboard::after,
+  .portfolio-hero-copy__pin {
+    width: 0.48rem;
+  }
+}
+
+/* Curved scrapbook label following the camera's upper contour. */
+.camera__curve-label {
+  position: absolute;
+  z-index: 4;
+  top: 6%;
+  left: 1%;
+  width: 54%;
+  height: 32%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.camera__curve-label text {
+  fill: #f6e7bd;
+  stroke: #57392d;
+  stroke-width: 1.15px;
+  paint-order: stroke fill;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 640px) {
+  .camera__curve-label {
+    top: 2%;
+    width: 58%;
+    height: 30%;
+  }
+
+  .camera__curve-label text {
+    font-size: 29px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Move the curved label into the open space to the camera's right. */
+.camera__curve-label {
+  top: 4%;
+  left: 73%;
+  width: 52%;
+  height: 38%;
+}
+
+@media (max-width: 640px) {
+  .camera__curve-label {
+    top: 3%;
+    left: 67%;
+    width: 52%;
+  }
+}
+
+/* Follow the camera's upper-right shoulder, then bend down toward the controls. */
+.camera__curve-label {
+  top: 4;
+  left: 50%;
+  width: 46%;
+  height: 42%;
+}
+
+@media (max-width: 640px) {
+  .camera__curve-label {
+    top: 5;
+    left: 48%;
+    width: 48%;
+    height: 40%;
+  }
+}
+
+.camera__curve-label text {
+  font-size: 32px;
+  letter-spacing: 1.4px;
+}
+
+@media (max-width: 640px) {
+  .camera__curve-label text {
+    font-size: 25px;
+  }
+}
+
+.camera__curve-label text {
+  fill: #b77f5e;
+  stroke: #4b2f24;
+}
+
+.camera__curve-label text {
+  fill: #dcc39d;
+  stroke: #72513e;
+}
+
+.camera__curve-label text {
+  fill: #dab696;
+  stroke: #644536;
 }
