@@ -4233,4 +4233,5 @@ html {
 .camera__curve-label text {
   fill: #dab696;
   stroke: #644536;
+  text-decoration: underline;
 }
