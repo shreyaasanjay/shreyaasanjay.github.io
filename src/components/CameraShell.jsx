@@ -4,12 +4,23 @@ import Viewfinder from './Viewfinder'
 
 function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTakePhoto }) {
   const [isShutterActive, setIsShutterActive] = useState(false)
+  const [isLabelVisible, setIsLabelVisible] = useState(false)
 
   useEffect(() => {
     if (!isShutterActive) return undefined
     const timer = window.setTimeout(() => setIsShutterActive(false), 700)
     return () => window.clearTimeout(timer)
   }, [isShutterActive])
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsLabelVisible(true)
+      return undefined
+    }
+
+    const timer = window.setTimeout(() => setIsLabelVisible(true), 3300)
+    return () => window.clearTimeout(timer)
+  }, [])
 
   function handleTakePhoto() {
     setIsShutterActive(true)
@@ -18,7 +29,21 @@ function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTa
 
   return (
     <section className="camera" aria-label="Shreyaa's portfolio camera">
-      <svg className="camera__curve-label" viewBox="0 0 500 200" aria-hidden="true">
+      <svg
+        className="camera__get-to-know-doodle"
+        viewBox="0 0 1000 300"
+        aria-hidden="true"
+      >
+        <path
+          className="camera__get-to-know-line"
+          d="M35 12C72 76 80 128 145 146C210 164 246 76 193 67C134 58 139 157 227 194C307 228 384 190 472 150C590 98 666 145 732 188C812 240 906 224 1000 181"
+        />
+      </svg>
+      <svg
+        className={`camera__curve-label${isLabelVisible ? ' camera__curve-label--visible' : ''}`}
+        viewBox="0 0 500 200"
+        aria-hidden="true"
+      >
         <defs>
           <path
             id="camera-curve-label-path"

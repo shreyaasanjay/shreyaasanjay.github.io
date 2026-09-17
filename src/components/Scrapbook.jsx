@@ -1,12 +1,33 @@
 ﻿import ProfileHeadshot from '../assets/profile-headshot.jpg'
 
+import { useEffect, useRef } from 'react'
 import BonassarLabPlot from '../assets/bonassar-lab-plot.png'
 import SoftwarePortfolioPreview from '../assets/software-portfolio-preview.png'
 
 function Scrapbook({ experiences, projects, research, skillGroups, onProjectOpen }) {
+  const homeRef = useRef(null)
+
+  useEffect(() => {
+    const home = homeRef.current
+    if (!home) return undefined
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          home.classList.add('is-visible')
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.25 },
+    )
+
+    observer.observe(home)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <article className="scrapbook" aria-label="Shreyaa’s portfolio scrapbook">
-      <section className="scrapbook-intro" id="home">
+      <section ref={homeRef} className="scrapbook-intro scrapbook-intro--reveal" id="home">
         <div className="scrapbook-intro__copy">
           <p className="scrapbook-kicker">About Me</p>
           <h2>About Me</h2>
