@@ -36,6 +36,7 @@ function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTa
       >
         <path
           className="camera__get-to-know-line"
+          pathLength="1"
           d="M35 12C72 76 80 128 145 146C210 164 246 76 193 67C134 58 139 157 227 194C307 228 384 190 472 150C590 98 666 145 732 188C812 240 906 224 1000 181"
         />
       </svg>

@@ -4363,8 +4363,8 @@ html {
 }
 
 .camera__get-to-know-line {
-  stroke-dasharray: 1250;
-  stroke-dashoffset: 1250;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
   animation: camera-doodle-draw 2400ms cubic-bezier(0.5, 0, 0.25, 1) 1450ms forwards;
 }
 
