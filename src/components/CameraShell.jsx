@@ -18,7 +18,7 @@ function CameraShell({ photos, selectedPhoto, capturedPhoto, onPhotoSelect, onTa
       return undefined
     }
 
-    const timer = window.setTimeout(() => setIsLabelVisible(true), 3300)
+    const timer = window.setTimeout(() => setIsLabelVisible(true), 2800)
     return () => window.clearTimeout(timer)
   }, [])
 
